@@ -1,0 +1,451 @@
+@import "tailwindcss";
+
+:root {
+  --forest: #173f2a;
+  --sage: #7f9569;
+  --sage-dark: #566f46;
+  --cream: #f2eee4;
+  --paper: #fbf9f3;
+  --ink: #20251f;
+  --muted: #656a61;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Avenir Next", Avenir, "Segoe UI", Arial, sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+summary,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: var(--sage);
+  color: white;
+}
+
+.shell {
+  width: min(1180px, calc(100% - 40px));
+  margin-inline: auto;
+}
+
+.section-pad {
+  padding-block: clamp(5rem, 9vw, 8rem);
+}
+
+.serif,
+.display-title,
+.section-title,
+.wordmark {
+  font-family: Didot, "Bodoni MT", "Baskerville", "Times New Roman", serif;
+}
+
+.eyebrow {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.display-title {
+  font-size: clamp(3.7rem, 8vw, 7.4rem);
+  font-weight: 400;
+  line-height: 0.88;
+  letter-spacing: -0.055em;
+  text-wrap: balance;
+}
+
+.section-title {
+  font-size: clamp(3rem, 5vw, 5rem);
+  font-weight: 400;
+  line-height: 0.96;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.wordmark {
+  display: inline-grid;
+  color: var(--forest);
+  font-size: 2.35rem;
+  font-weight: 500;
+  line-height: 0.72;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+}
+
+.wordmark small {
+  margin-top: 0.55rem;
+  font-family: "Avenir Next", Avenir, "Segoe UI", Arial, sans-serif;
+  font-size: 0.48rem;
+  font-weight: 700;
+  letter-spacing: 0.34em;
+  text-align: center;
+}
+
+.wordmark--compact {
+  grid-template-columns: auto auto;
+  column-gap: 0.25em;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.wordmark--compact small {
+  grid-column: 1 / -1;
+  margin-top: 0.18rem;
+  font-size: 0.38rem;
+}
+
+.wordmark--light {
+  color: white;
+}
+
+.nav-link {
+  position: relative;
+  padding-block: 0.5rem;
+  color: rgb(255 255 255 / 0.72);
+  transition: color 180ms ease;
+}
+
+.nav-link::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  background: white;
+  content: "";
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 220ms ease;
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.button {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  border: 1px solid transparent;
+  padding: 0.85rem 1.25rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease,
+    transform 180ms ease;
+}
+
+.button[aria-disabled="true"],
+.whatsapp-float[aria-disabled="true"] {
+  cursor: default;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button--light,
+.button--ghost {
+  border-color: rgb(255 255 255 / 0.5);
+  color: white;
+}
+
+.button--light:hover,
+.button--ghost:hover {
+  border-color: white;
+  background: white;
+  color: var(--forest);
+}
+
+.button--cream {
+  background: var(--cream);
+  color: var(--forest);
+}
+
+.button--cream:hover {
+  background: white;
+}
+
+.button--dark {
+  background: var(--forest);
+  color: white;
+}
+
+.button--dark:hover {
+  background: #0f311f;
+}
+
+.button--outline {
+  border-color: rgb(23 63 42 / 0.35);
+  color: var(--forest);
+}
+
+.button--outline:hover {
+  border-color: var(--forest);
+}
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(90deg, rgb(10 29 19 / 0.87) 0%, rgb(10 29 19 / 0.56) 53%, rgb(10 29 19 / 0.25) 100%),
+    linear-gradient(0deg, rgb(10 29 19 / 0.76) 0%, transparent 55%);
+}
+
+.hero__botanical {
+  position: absolute;
+  z-index: 2;
+  top: 9%;
+  right: -8%;
+  width: min(48vw, 660px);
+  aspect-ratio: 1;
+  border: 1px solid rgb(255 255 255 / 0.12);
+  border-radius: 48% 52% 41% 59% / 58% 42% 58% 42%;
+  transform: rotate(22deg);
+}
+
+.hero__botanical::before,
+.hero__botanical::after {
+  position: absolute;
+  border: 1px solid rgb(255 255 255 / 0.08);
+  border-radius: inherit;
+  content: "";
+}
+
+.hero__botanical::before {
+  inset: 13%;
+}
+
+.hero__botanical::after {
+  inset: 28%;
+}
+
+.hero__info {
+  border-left: 1px solid rgb(255 255 255 / 0.3);
+  padding-left: 1.5rem;
+}
+
+.hero__info-icon {
+  display: flex;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  border: 1px solid rgb(255 255 255 / 0.35);
+  border-radius: 50%;
+}
+
+.mobile-menu {
+  position: relative;
+}
+
+.header-reserve {
+  display: none;
+}
+
+.mobile-menu summary {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  list-style: none;
+  place-items: center;
+  border: 1px solid rgb(255 255 255 / 0.45);
+}
+
+.mobile-menu summary::-webkit-details-marker {
+  display: none;
+}
+
+.mobile-menu nav {
+  position: absolute;
+  top: calc(100% + 0.75rem);
+  right: 0;
+  display: grid;
+  width: min(280px, calc(100vw - 40px));
+  padding: 0.75rem;
+  background: var(--cream);
+  box-shadow: 0 25px 60px rgb(0 0 0 / 0.22);
+  color: var(--ink);
+}
+
+.mobile-menu nav a {
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid rgb(0 0 0 / 0.08);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.mobile-menu nav a:last-child {
+  border-bottom: 0;
+}
+
+.mobile-menu nav span:last-child {
+  padding: 0.9rem 1rem;
+  background: var(--forest);
+  color: white;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--forest);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.menu-card {
+  border: 1px solid rgb(0 0 0 / 0.08);
+  background: var(--cream);
+  box-shadow: 0 16px 60px rgb(32 37 31 / 0.05);
+}
+
+.menu-card__number {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 50%;
+  background: rgb(242 238 228 / 0.92);
+  color: var(--forest);
+  font-family: Didot, "Bodoni MT", serif;
+  font-size: 0.9rem;
+}
+
+.experience-row {
+  display: grid;
+  grid-template-columns: 40px 1fr auto;
+  gap: 1.1rem;
+  align-items: start;
+  padding-block: 1.7rem;
+}
+
+.experience-row > span {
+  padding-top: 0.35rem;
+  color: #bccaab;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+}
+
+.whatsapp-float {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 40;
+  display: flex;
+  min-height: 52px;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.8rem 1rem;
+  border-radius: 999px;
+  background: #1f8f4d;
+  box-shadow: 0 14px 35px rgb(0 0 0 / 0.2);
+  color: white;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: transform 180ms ease, background-color 180ms ease;
+}
+
+.whatsapp-float:hover {
+  background: #18723d;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 639px) {
+  .shell {
+    width: min(100% - 28px, 1180px);
+  }
+
+  .display-title {
+    font-size: clamp(3.25rem, 16vw, 5rem);
+  }
+
+  .section-title {
+    font-size: clamp(2.7rem, 12vw, 4rem);
+  }
+
+  .hero__info {
+    display: none;
+  }
+
+  .whatsapp-float span {
+    display: none;
+  }
+
+  .whatsapp-float {
+    width: 52px;
+    padding: 0;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .header-reserve {
+    display: inline-flex;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

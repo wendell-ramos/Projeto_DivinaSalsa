@@ -1,0 +1,17 @@
+node_modules/
+.next/
+out/
+.vercel/
+coverage/
+.env*
+!.env.example
+npm-debug.log*
+*.log
+*.tsbuildinfo
+.DS_Store
+Thumbs.db
+tmp/
+
+# Instruções locais para assistentes de desenvolvimento
+AGENTS.md
+CLAUDE.md
