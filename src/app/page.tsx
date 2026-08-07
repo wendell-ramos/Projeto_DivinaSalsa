@@ -10,6 +10,8 @@ const navigation = [
   { label: "Visite", href: "#visite" },
 ];
 
+const basePath = process.env.PAGES_BASE_PATH ?? "";
+
 export default function Home() {
   const structuredData = {
     "@context": "https://schema.org",
@@ -73,7 +75,7 @@ export default function Home() {
 
       <section id="inicio" className="hero min-h-[760px] text-white">
         <Image
-          src="/images/camarao-tropical.jpg"
+          src={`${basePath}/images/camarao-tropical.jpg`}
           alt="Camarão Tropical servido pelo Divina Salsa"
           fill
           priority
@@ -123,7 +125,7 @@ export default function Home() {
           <div className="relative min-h-[560px]">
             <div className="absolute left-0 top-0 h-[88%] w-[78%] overflow-hidden rounded-[2px]">
               <Image
-                src="/images/mignon-germanica.jpg"
+                src={`${basePath}/images/mignon-germanica.jpg`}
                 alt="Prato de mignon do Divina Salsa"
                 fill
                 sizes="(max-width: 1024px) 78vw, 34vw"
@@ -185,7 +187,7 @@ export default function Home() {
               <article className={`menu-card group ${index === 1 ? "md:translate-y-8" : ""}`} key={item.name}>
                 <div className="relative aspect-[4/5] overflow-hidden">
                   <Image
-                    src={item.image}
+                    src={`${basePath}${item.image}`}
                     alt={item.name}
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
@@ -220,7 +222,7 @@ export default function Home() {
         <div className="shell grid lg:grid-cols-[0.9fr_1.1fr]">
           <div className="relative min-h-[520px] overflow-hidden lg:min-h-[720px]">
             <Image
-              src="/images/soda-italiana.jpg"
+              src={`${basePath}/images/soda-italiana.jpg`}
               alt="Soda italiana do Divina Salsa"
               fill
               sizes="(max-width: 1024px) 100vw, 45vw"
@@ -298,7 +300,7 @@ export default function Home() {
 
             <div className="relative min-h-[480px]">
               <Image
-                src="/images/risoto-camarao.jpg"
+                src={`${basePath}/images/risoto-camarao.jpg`}
                 alt="Risoto de camarão do Divina Salsa"
                 fill
                 sizes="(max-width: 1024px) 100vw, 45vw"
