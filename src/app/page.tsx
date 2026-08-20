@@ -1,14 +1,8 @@
 import Image from "next/image";
 import { Icon } from "@/components/icon";
-import { Wordmark } from "@/components/wordmark";
+import { SiteFooter } from "@/components/site-footer";
+import { SiteHeader } from "@/components/site-header";
 import { experiences, menuHighlights, restaurant } from "@/content/restaurant";
-
-const navigation = [
-  { label: "A casa", href: "#a-casa" },
-  { label: "Cardápio", href: "#cardapio" },
-  { label: "Experiências", href: "#experiencias" },
-  { label: "Visite", href: "#visite" },
-];
 
 const basePath = process.env.PAGES_BASE_PATH ?? "";
 
@@ -36,42 +30,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
-      <header className="absolute inset-x-0 top-0 z-30 border-b border-white/15 text-white">
-        <div className="shell flex h-24 items-center justify-between gap-8">
-          <a href="#inicio" aria-label="Ir para o início">
-            <Wordmark compact light />
-          </a>
-
-          <nav className="hidden items-center gap-8 text-[0.72rem] font-bold tracking-[0.18em] uppercase lg:flex">
-            {navigation.map((item) => (
-              <a className="nav-link" href={item.href} key={item.href}>
-                {item.label}
-              </a>
-            ))}
-          </nav>
-
-          <button className="button button--light header-reserve" type="button" aria-disabled="true">
-            Reservar mesa
-            <Icon name="arrow-down-right" size={17} />
-          </button>
-
-          <details className="mobile-menu lg:hidden">
-            <summary aria-label="Abrir menu">
-              <Icon name="menu" size={24} />
-            </summary>
-            <nav>
-              {navigation.map((item) => (
-                <a href={item.href} key={item.href}>
-                  {item.label}
-                </a>
-              ))}
-              <span>
-                Reservar mesa
-              </span>
-            </nav>
-          </details>
-        </div>
-      </header>
+      <SiteHeader />
 
       <section id="inicio" className="hero min-h-[760px] text-white">
         <Image
@@ -88,7 +47,7 @@ export default function Home() {
         <div className="shell relative z-10 flex min-h-[760px] items-end pb-16 pt-40 md:pb-20">
           <div className="grid w-full gap-12 lg:grid-cols-[1fr_290px] lg:items-end">
             <div className="max-w-4xl">
-              <p className="eyebrow text-[#d8e0cb]">Passeio Pedra Branca · Palhoça</p>
+              <p className="eyebrow text-[var(--olive-100)]">Passeio Pedra Branca · Palhoça</p>
               <h1 className="display-title mt-6 max-w-4xl">
                 Sabores que transformam encontros em celebrações.
               </h1>
@@ -142,11 +101,15 @@ export default function Home() {
           </div>
 
           <div className="lg:pl-12">
-            <p className="eyebrow text-[var(--forest)]">A experiência Divina Salsa</p>
+            <p className="eyebrow text-[var(--forest)]">Sobre o Divina Salsa</p>
             <h2 className="section-title mt-5 text-[var(--ink)]">
               Tradição e inovação servidas à mesma mesa.
             </h2>
-            <div className="mt-8 grid gap-6 text-[1.03rem] leading-8 text-[var(--muted)] sm:grid-cols-2">
+            <p className="mt-7 max-w-2xl text-[1.08rem] leading-8 text-[var(--muted)]">
+              No coração do Passeio Pedra Branca, uma casa feita para reunir pessoas e transformar
+              refeições em boas lembranças.
+            </p>
+            <div className="mt-7 grid gap-6 text-[1.03rem] leading-8 text-[var(--muted)] sm:grid-cols-2">
               <p>
                 Ingredientes selecionados, receitas cuidadosas e pratos contemporâneos com a
                 tradição do sabor.
@@ -160,6 +123,10 @@ export default function Home() {
               <div>
                 <strong className="serif block text-3xl text-[var(--forest)]">Da terra ao mar</strong>
                 <span className="text-sm text-[var(--muted)]">Carnes, pescados, massas e risotos</span>
+              </div>
+              <div>
+                <strong className="serif block text-3xl text-[var(--forest)]">Almoço e jantar</strong>
+                <span className="text-sm text-[var(--muted)]">Sabores para diferentes momentos</span>
               </div>
               <a className="text-link" href="#cardapio">
                 Explorar sabores <Icon name="arrow-right" size={16} />
@@ -210,10 +177,10 @@ export default function Home() {
             <p className="text-sm text-[var(--muted)]">
               Entradas · Saladas · Carnes · Pescados · Massas · Risotos · Kids · Sobremesas
             </p>
-            <button className="button button--dark" type="button" aria-disabled="true">
-              Pedir pelo iFood
-              <Icon name="external" size={16} />
-            </button>
+            <a className="button button--dark" href="#cardapio">
+              Explorar destaques
+              <Icon name="arrow-right" size={16} />
+            </a>
           </div>
         </div>
       </section>
@@ -228,14 +195,14 @@ export default function Home() {
               sizes="(max-width: 1024px) 100vw, 45vw"
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#102a1c]/80 via-transparent to-transparent" />
+            <div className="experience-image-overlay absolute inset-0" />
             <p className="absolute bottom-10 left-8 right-8 serif text-4xl leading-tight sm:left-12 sm:text-5xl">
               Boa comida.<br />Boas conversas.<br />O lugar certo.
             </p>
           </div>
 
           <div className="flex flex-col justify-center py-16 lg:py-24 lg:pl-20">
-            <p className="eyebrow text-[#bccaab]">Mais que uma refeição</p>
+            <p className="eyebrow text-[var(--olive-300)]">Mais que uma refeição</p>
             <h2 className="section-title mt-5 max-w-xl text-white">
               Uma casa aberta para receber você.
             </h2>
@@ -247,7 +214,7 @@ export default function Home() {
                     <h3 className="serif text-2xl">{item.title}</h3>
                     <p className="mt-2 max-w-md text-sm leading-6 text-white/65">{item.text}</p>
                   </div>
-                  <Icon name="arrow-down-right" className="ml-auto shrink-0 text-[#bccaab]" size={22} />
+                  <Icon name="arrow-down-right" className="ml-auto shrink-0 text-[var(--olive-300)]" size={22} />
                 </article>
               ))}
             </div>
@@ -281,20 +248,30 @@ export default function Home() {
                   <p className="mt-4 max-w-xs text-sm leading-6 text-[var(--muted)]">
                     {restaurant.address}
                   </p>
-                  <span className="text-link mt-5">
+                  <a
+                    className="text-link mt-5"
+                    href={restaurant.maps}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     Abrir no mapa <Icon name="external" size={15} />
-                  </span>
+                  </a>
                 </div>
               </div>
 
               <div className="mt-12 flex flex-wrap gap-3">
-                <button className="button button--dark" type="button" aria-disabled="true">
+                <a
+                  className="button button--dark"
+                  href={restaurant.whatsapp}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <Icon name="message" size={17} />
                   Reservar pelo WhatsApp
-                </button>
-                <span className="button button--outline">
+                </a>
+                <a className="button button--outline" href="tel:+554832830019">
                   {restaurant.phone}
-                </span>
+                </a>
               </div>
             </div>
 
@@ -328,41 +305,19 @@ export default function Home() {
             <p className="eyebrow text-white/70">Acompanhe o Divina</p>
             <h2 className="serif mt-3 text-4xl sm:text-5xl">Novidades, pratos e bons momentos.</h2>
           </div>
-          <button className="button button--light" type="button" aria-disabled="true">
+          <a
+            className="button button--light"
+            href={restaurant.instagram}
+            target="_blank"
+            rel="noreferrer"
+          >
             <Icon name="instagram" size={18} />
             @divinasalsa
-          </button>
+          </a>
         </div>
       </section>
 
-      <footer className="bg-[#102a1c] py-12 text-white">
-        <div className="shell flex flex-col gap-10">
-          <div className="flex flex-col justify-between gap-10 md:flex-row md:items-end">
-            <Wordmark light />
-            <div className="flex flex-wrap gap-x-7 gap-y-3 text-xs font-bold tracking-[0.16em] uppercase text-white/65">
-              {navigation.map((item) => (
-                <a className="hover:text-white" href={item.href} key={item.href}>
-                  {item.label}
-                </a>
-              ))}
-            </div>
-          </div>
-          <div className="flex flex-col justify-between gap-3 border-t border-white/10 pt-7 text-xs text-white/45 sm:flex-row">
-            <p>© {new Date().getFullYear()} Divina Salsa Restaurante.</p>
-            <p>Protótipo inicial · Informações sujeitas à confirmação.</p>
-          </div>
-        </div>
-      </footer>
-
-      <button
-        className="whatsapp-float"
-        type="button"
-        aria-disabled="true"
-        aria-label="Reservar pelo WhatsApp"
-      >
-        <Icon name="message" size={22} />
-        <span>Reservar</span>
-      </button>
+      <SiteFooter />
     </main>
   );
 }
