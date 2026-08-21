@@ -13,12 +13,12 @@ export const siteNavigation = [
 export function SiteHeader() {
   return (
     <header className="site-header absolute inset-x-0 top-0 z-30 border-b border-white/15 text-white">
-      <div className="shell flex h-24 items-center justify-between gap-8">
+      <div className="shell flex h-[86px] items-center justify-between gap-7">
         <Link href="/" aria-label="Ir para o início">
           <Wordmark compact light />
         </Link>
 
-        <nav className="hidden items-center gap-8 text-[0.72rem] font-bold tracking-[0.18em] uppercase lg:flex">
+        <nav className="hidden items-center gap-7 text-[0.66rem] font-bold tracking-[0.18em] uppercase lg:flex">
           {siteNavigation.map((item) => (
             <Link className="nav-link" href={item.href} key={item.href}>
               {item.label}

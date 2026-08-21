@@ -7,21 +7,23 @@ import { restaurant } from "@/content/restaurant";
 export function SiteFooter() {
   return (
     <>
-      <footer className="site-footer py-12 text-white">
-        <div className="shell flex flex-col gap-10">
-          <div className="flex flex-col justify-between gap-10 md:flex-row md:items-end">
-            <Wordmark light />
-            <div className="flex flex-wrap gap-x-7 gap-y-3 text-xs font-bold tracking-[0.16em] uppercase text-white/65">
+      <footer className="site-footer py-8 text-white">
+        <div className="shell flex flex-col gap-6">
+          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-center">
+            <Wordmark compact light />
+            <nav
+              className="flex flex-wrap gap-x-6 gap-y-3 text-[0.68rem] font-bold tracking-[0.16em] uppercase text-white/65"
+              aria-label="Navegação do rodapé"
+            >
               {siteNavigation.map((item) => (
                 <Link className="hover:text-white" href={item.href} key={item.href}>
                   {item.label}
                 </Link>
               ))}
-            </div>
+            </nav>
           </div>
-          <div className="flex flex-col justify-between gap-3 border-t border-white/10 pt-7 text-xs text-white/45 sm:flex-row">
+          <div className="flex flex-col justify-between gap-3 border-t border-white/10 pt-5 text-[0.68rem] text-white/45 sm:flex-row sm:items-center sm:pr-40">
             <p>© {new Date().getFullYear()} Divina Salsa Restaurante.</p>
-            <p>Protótipo inicial · Informações sujeitas à confirmação.</p>
           </div>
         </div>
       </footer>

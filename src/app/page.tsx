@@ -32,7 +32,7 @@ export default function Home() {
 
       <SiteHeader />
 
-      <section id="inicio" className="hero min-h-[760px] text-white">
+      <section id="inicio" className="hero min-h-[684px] text-white">
         <Image
           src={`${basePath}/images/camarao-tropical.jpg`}
           alt="Camarão Tropical servido pelo Divina Salsa"
@@ -44,14 +44,14 @@ export default function Home() {
         <div className="hero__overlay" />
         <div className="hero__botanical" aria-hidden="true" />
 
-        <div className="shell relative z-10 flex min-h-[760px] items-end pb-16 pt-40 md:pb-20">
-          <div className="grid w-full gap-12 lg:grid-cols-[1fr_290px] lg:items-end">
+        <div className="shell relative z-10 flex min-h-[684px] items-end pb-14 pt-36 md:pb-18">
+          <div className="grid w-full gap-10 lg:grid-cols-[1fr_260px] lg:items-end">
             <div className="max-w-4xl">
               <p className="eyebrow text-[var(--olive-100)]">Passeio Pedra Branca · Palhoça</p>
-              <h1 className="display-title mt-6 max-w-4xl">
+              <h1 className="display-title mt-5 max-w-3xl">
                 Sabores que transformam encontros em celebrações.
               </h1>
-              <div className="mt-9 flex flex-wrap gap-3">
+              <div className="mt-8 flex flex-wrap gap-3">
                 <a className="button button--cream" href="#cardapio">
                   Conheça o cardápio
                   <Icon name="arrow-right" size={17} />
@@ -80,8 +80,8 @@ export default function Home() {
       </section>
 
       <section id="a-casa" className="section-pad overflow-hidden bg-[var(--cream)]">
-        <div className="shell grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
-          <div className="relative min-h-[560px]">
+        <div className="shell grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+          <div className="relative min-h-[504px]">
             <div className="absolute left-0 top-0 h-[88%] w-[78%] overflow-hidden rounded-[2px]">
               <Image
                 src={`${basePath}/images/mignon-germanica.jpg`}
@@ -91,25 +91,25 @@ export default function Home() {
                 className="object-cover"
               />
             </div>
-            <div className="absolute bottom-0 right-0 w-[56%] bg-[var(--sage)] p-7 text-white shadow-2xl sm:p-9">
-              <p className="serif text-5xl leading-none">Desde</p>
-              <p className="serif mt-1 text-7xl leading-none">2016</p>
+            <div className="absolute bottom-0 right-0 w-[56%] bg-[var(--sage)] p-6 text-white shadow-2xl sm:p-8">
+              <p className="serif text-4xl leading-none">Desde</p>
+              <p className="serif mt-1 text-6xl leading-none">2016</p>
               <p className="mt-5 text-xs font-bold tracking-[0.18em] uppercase text-white/75">
                 Na Pedra Branca
               </p>
             </div>
           </div>
 
-          <div className="lg:pl-12">
+          <div className="lg:pl-10">
             <p className="eyebrow text-[var(--forest)]">Sobre o Divina Salsa</p>
             <h2 className="section-title mt-5 text-[var(--ink)]">
               Tradição e inovação servidas à mesma mesa.
             </h2>
-            <p className="mt-7 max-w-2xl text-[1.08rem] leading-8 text-[var(--muted)]">
+            <p className="mt-6 max-w-2xl text-base leading-7 text-[var(--muted)]">
               No coração do Passeio Pedra Branca, uma casa feita para reunir pessoas e transformar
               refeições em boas lembranças.
             </p>
-            <div className="mt-7 grid gap-6 text-[1.03rem] leading-8 text-[var(--muted)] sm:grid-cols-2">
+            <div className="mt-6 grid gap-5 text-[0.95rem] leading-7 text-[var(--muted)] sm:grid-cols-2">
               <p>
                 Ingredientes selecionados, receitas cuidadosas e pratos contemporâneos com a
                 tradição do sabor.
@@ -119,13 +119,13 @@ export default function Home() {
                 ser lembradas.
               </p>
             </div>
-            <div className="mt-10 flex flex-wrap items-center gap-8 border-t border-black/10 pt-8">
+            <div className="mt-9 flex flex-wrap items-center gap-7 border-t border-black/10 pt-7">
               <div>
-                <strong className="serif block text-3xl text-[var(--forest)]">Da terra ao mar</strong>
+                <strong className="serif block text-[1.7rem] text-[var(--forest)]">Da terra ao mar</strong>
                 <span className="text-sm text-[var(--muted)]">Carnes, pescados, massas e risotos</span>
               </div>
               <div>
-                <strong className="serif block text-3xl text-[var(--forest)]">Almoço e jantar</strong>
+                <strong className="serif block text-[1.7rem] text-[var(--forest)]">Almoço e jantar</strong>
                 <span className="text-sm text-[var(--muted)]">Sabores para diferentes momentos</span>
               </div>
               <a className="text-link" href="#cardapio">
@@ -149,7 +149,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mt-14 grid gap-5 md:grid-cols-3">
+          <div className="mt-12 grid gap-4 md:grid-cols-3">
             {menuHighlights.map((item, index) => (
               <article className={`menu-card group ${index === 1 ? "md:translate-y-8" : ""}`} key={item.name}>
                 <div className="relative aspect-[4/5] overflow-hidden">
@@ -162,18 +162,18 @@ export default function Home() {
                   />
                   <span className="menu-card__number">0{index + 1}</span>
                 </div>
-                <div className="p-7">
+                <div className="p-6">
                   <p className="text-[0.68rem] font-bold tracking-[0.18em] text-[var(--sage-dark)] uppercase">
                     {item.category}
                   </p>
-                  <h3 className="serif mt-3 text-3xl text-[var(--ink)]">{item.name}</h3>
+                  <h3 className="serif mt-3 text-[1.7rem] text-[var(--ink)]">{item.name}</h3>
                   <p className="mt-3 text-sm leading-6 text-[var(--muted)]">{item.description}</p>
                 </div>
               </article>
             ))}
           </div>
 
-          <div className="mt-20 flex flex-col items-start justify-between gap-5 border-t border-black/10 pt-8 sm:flex-row sm:items-center">
+          <div className="mt-18 flex flex-col items-start justify-between gap-5 border-t border-black/10 pt-7 sm:flex-row sm:items-center">
             <p className="text-sm text-[var(--muted)]">
               Entradas · Saladas · Carnes · Pescados · Massas · Risotos · Kids · Sobremesas
             </p>
@@ -187,7 +187,7 @@ export default function Home() {
 
       <section id="experiencias" className="bg-[var(--forest)] text-white">
         <div className="shell grid lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="relative min-h-[520px] overflow-hidden lg:min-h-[720px]">
+          <div className="relative min-h-[420px] overflow-hidden lg:min-h-[560px]">
             <Image
               src={`${basePath}/images/soda-italiana.jpg`}
               alt="Soda italiana do Divina Salsa"
@@ -196,23 +196,23 @@ export default function Home() {
               className="object-cover"
             />
             <div className="experience-image-overlay absolute inset-0" />
-            <p className="absolute bottom-10 left-8 right-8 serif text-4xl leading-tight sm:left-12 sm:text-5xl">
+            <p className="absolute bottom-7 left-7 right-7 serif text-3xl leading-tight sm:left-9 sm:text-4xl">
               Boa comida.<br />Boas conversas.<br />O lugar certo.
             </p>
           </div>
 
-          <div className="flex flex-col justify-center py-16 lg:py-24 lg:pl-20">
+          <div className="flex flex-col justify-center py-12 lg:py-14 lg:pl-14">
             <p className="eyebrow text-[var(--olive-300)]">Mais que uma refeição</p>
-            <h2 className="section-title mt-5 max-w-xl text-white">
+            <h2 className="section-title experience-title mt-4 max-w-lg text-white">
               Uma casa aberta para receber você.
             </h2>
-            <div className="mt-12 divide-y divide-white/15 border-y border-white/15">
+            <div className="mt-8 divide-y divide-white/15 border-y border-white/15">
               {experiences.map((item) => (
                 <article className="experience-row" key={item.number}>
                   <span>{item.number}</span>
                   <div>
-                    <h3 className="serif text-2xl">{item.title}</h3>
-                    <p className="mt-2 max-w-md text-sm leading-6 text-white/65">{item.text}</p>
+                    <h3 className="serif text-xl">{item.title}</h3>
+                    <p className="mt-1.5 max-w-md text-xs leading-5 text-white/65">{item.text}</p>
                   </div>
                   <Icon name="arrow-down-right" className="ml-auto shrink-0 text-[var(--olive-300)]" size={22} />
                 </article>
@@ -225,11 +225,11 @@ export default function Home() {
       <section id="visite" className="section-pad bg-[var(--cream)]">
         <div className="shell">
           <div className="grid overflow-hidden border border-black/10 bg-[var(--paper)] lg:grid-cols-[1.05fr_0.95fr]">
-            <div className="p-8 sm:p-12 lg:p-16">
+            <div className="p-7 sm:p-10 lg:p-14">
               <p className="eyebrow text-[var(--forest)]">Planeje sua visita</p>
               <h2 className="section-title mt-5 max-w-xl">Sua mesa está esperando.</h2>
 
-              <div className="mt-12 grid gap-10 sm:grid-cols-2">
+              <div className="mt-10 grid gap-9 sm:grid-cols-2">
                 <div>
                   <Icon name="clock" className="text-[var(--sage-dark)]" size={22} />
                   <h3 className="mt-4 text-xs font-bold tracking-[0.18em] uppercase">Horários</h3>
@@ -259,7 +259,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="mt-12 flex flex-wrap gap-3">
+              <div className="mt-10 flex flex-wrap gap-3">
                 <a
                   className="button button--dark"
                   href={restaurant.whatsapp}
@@ -275,7 +275,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="relative min-h-[480px]">
+            <div className="relative min-h-[432px]">
               <Image
                 src={`${basePath}/images/risoto-camarao.jpg`}
                 alt="Risoto de camarão do Divina Salsa"
@@ -299,21 +299,29 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[var(--sage)] py-16 text-white">
-        <div className="shell flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
-          <div>
+      <section className="instagram-promo text-white">
+        <div className="shell instagram-promo__layout">
+          <div className="instagram-promo__content">
             <p className="eyebrow text-white/70">Acompanhe o Divina</p>
-            <h2 className="serif mt-3 text-4xl sm:text-5xl">Novidades, pratos e bons momentos.</h2>
+            <h2 className="serif mt-2 text-[2.15rem] leading-[1.05] sm:text-[2.35rem]">
+              Novidades, pratos e bons momentos.
+            </h2>
           </div>
-          <a
-            className="button button--light"
-            href={restaurant.instagram}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Icon name="instagram" size={18} />
-            @divinasalsa
-          </a>
+
+          <div className="instagram-promo__action">
+            <p className="max-w-sm text-sm leading-6 text-white/65">
+              Pratos, novidades e momentos que fazem parte da rotina da casa.
+            </p>
+            <a
+              className="button button--cream mt-5"
+              href={restaurant.instagram}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Icon name="instagram" size={18} />
+              @divinasalsa
+            </a>
+          </div>
         </div>
       </section>
 
