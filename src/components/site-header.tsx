@@ -1,16 +1,16 @@
+"use client";
+
 import Link from "next/link";
+import { useRef } from "react";
 import { Icon } from "@/components/icon";
 import { Wordmark } from "@/components/wordmark";
+import { siteNavigation } from "@/content/navigation";
 import { restaurant } from "@/content/restaurant";
 
-export const siteNavigation = [
-  { label: "Sobre", href: "#a-casa" },
-  { label: "Cardápio", href: "#cardapio" },
-  { label: "Experiências", href: "#experiencias" },
-  { label: "Visite", href: "#visite" },
-] as const;
-
 export function SiteHeader() {
+  const mobileMenuRef = useRef<HTMLDetailsElement>(null);
+  const closeMobileMenu = () => mobileMenuRef.current?.removeAttribute("open");
+
   return (
     <header className="site-header absolute inset-x-0 top-0 z-30 border-b border-white/15 text-white">
       <div className="shell flex h-[86px] items-center justify-between gap-7">
@@ -36,17 +36,17 @@ export function SiteHeader() {
           <Icon name="arrow-down-right" size={17} />
         </a>
 
-        <details className="mobile-menu lg:hidden">
+        <details className="mobile-menu lg:hidden" ref={mobileMenuRef}>
           <summary aria-label="Abrir menu">
             <Icon name="menu" size={24} />
           </summary>
           <nav>
             {siteNavigation.map((item) => (
-              <Link href={item.href} key={item.href}>
+              <Link href={item.href} key={item.href} onClick={closeMobileMenu}>
                 {item.label}
               </Link>
             ))}
-            <a href={restaurant.whatsapp} target="_blank" rel="noreferrer">
+            <a href={restaurant.whatsapp} target="_blank" rel="noreferrer" onClick={closeMobileMenu}>
               Fale conosco
             </a>
           </nav>

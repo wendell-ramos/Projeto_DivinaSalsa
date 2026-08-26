@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Icon } from "@/components/icon";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -32,7 +33,7 @@ export default function Home() {
 
       <SiteHeader />
 
-      <section id="inicio" className="hero min-h-[684px] text-white">
+      <section id="inicio" className="hero min-h-[620px] text-white">
         <Image
           src={`${basePath}/images/camarao-tropical.jpg`}
           alt="Camarão Tropical servido pelo Divina Salsa"
@@ -44,7 +45,7 @@ export default function Home() {
         <div className="hero__overlay" />
         <div className="hero__botanical" aria-hidden="true" />
 
-        <div className="shell relative z-10 flex min-h-[684px] items-end pb-14 pt-36 md:pb-18">
+        <div className="shell relative z-10 flex min-h-[620px] items-end pb-12 pt-32 md:pb-14">
           <div className="grid w-full gap-10 lg:grid-cols-[1fr_260px] lg:items-end">
             <div className="max-w-4xl">
               <p className="eyebrow text-[var(--olive-100)]">Passeio Pedra Branca · Palhoça</p>
@@ -52,14 +53,19 @@ export default function Home() {
                 Sabores que transformam encontros em celebrações.
               </h1>
               <div className="mt-8 flex flex-wrap gap-3">
-                <a className="button button--cream" href="#cardapio">
+                <Link className="button button--cream" href="/cardapio">
                   Conheça o cardápio
                   <Icon name="arrow-right" size={17} />
-                </a>
-                <button className="button button--ghost" type="button" aria-disabled="true">
+                </Link>
+                <a
+                  className="button button--ghost"
+                  href={restaurant.maps}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   Como chegar
                   <Icon name="map-pin" size={17} />
-                </button>
+                </a>
               </div>
             </div>
 
@@ -81,7 +87,7 @@ export default function Home() {
 
       <section id="a-casa" className="section-pad overflow-hidden bg-[var(--cream)]">
         <div className="shell grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
-          <div className="relative min-h-[504px]">
+          <div className="relative min-h-[420px] sm:min-h-[480px]">
             <div className="absolute left-0 top-0 h-[88%] w-[78%] overflow-hidden rounded-[2px]">
               <Image
                 src={`${basePath}/images/mignon-germanica.jpg`}
@@ -128,9 +134,9 @@ export default function Home() {
                 <strong className="serif block text-[1.7rem] text-[var(--forest)]">Almoço e jantar</strong>
                 <span className="text-sm text-[var(--muted)]">Sabores para diferentes momentos</span>
               </div>
-              <a className="text-link" href="#cardapio">
+              <Link className="text-link" href="/cardapio">
                 Explorar sabores <Icon name="arrow-right" size={16} />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -152,7 +158,7 @@ export default function Home() {
           <div className="mt-12 grid gap-4 md:grid-cols-3">
             {menuHighlights.map((item, index) => (
               <article className={`menu-card group ${index === 1 ? "md:translate-y-8" : ""}`} key={item.name}>
-                <div className="relative aspect-[4/5] overflow-hidden">
+                <div className="relative aspect-square overflow-hidden">
                   <Image
                     src={`${basePath}${item.image}`}
                     alt={item.name}
@@ -177,10 +183,10 @@ export default function Home() {
             <p className="text-sm text-[var(--muted)]">
               Entradas · Saladas · Carnes · Pescados · Massas · Risotos · Kids · Sobremesas
             </p>
-            <a className="button button--dark" href="#cardapio">
-              Explorar destaques
+            <Link className="button button--dark" href="/cardapio">
+              Ver cardápio completo
               <Icon name="arrow-right" size={16} />
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -275,7 +281,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="relative min-h-[432px]">
+            <div className="relative min-h-[340px] sm:min-h-[400px]">
               <Image
                 src={`${basePath}/images/risoto-camarao.jpg`}
                 alt="Risoto de camarão do Divina Salsa"

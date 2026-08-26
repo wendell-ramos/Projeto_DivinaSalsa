@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Icon } from "@/components/icon";
-import { siteNavigation } from "@/components/site-header";
 import { Wordmark } from "@/components/wordmark";
+import { siteNavigation } from "@/content/navigation";
 import { restaurant } from "@/content/restaurant";
 
 export function SiteFooter() {
