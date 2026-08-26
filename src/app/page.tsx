@@ -85,10 +85,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="a-casa" className="section-pad overflow-hidden bg-[var(--cream)]">
-        <div className="shell grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+      <section id="a-casa" className="about-section section-pad overflow-hidden bg-[var(--cream)]">
+        <div className="about-layout shell grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
           <div className="about-visual relative min-h-[420px] sm:min-h-[480px]">
-            <div className="absolute left-0 top-0 h-[88%] w-[78%] overflow-hidden rounded-[2px]">
+            <div className="about-photo absolute left-0 top-0 h-[88%] w-[78%] overflow-hidden rounded-[2px]">
               <Image
                 src={`${basePath}/images/mignon-germanica.jpg`}
                 alt="Prato de mignon do Divina Salsa"
