@@ -697,6 +697,146 @@ a:focus-visible {
 
 }
 
+@media (max-width: 430px) {
+  .about-copy .section-title {
+    font-size: clamp(1.45rem, 7.5vw, 2rem);
+    line-height: 1.04;
+  }
+
+  .about-copy > p.mt-6 {
+    margin-top: 1rem;
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+
+  .about-description-grid {
+    gap: 0.9rem;
+    margin-top: 1rem;
+    font-size: 0.84rem;
+    line-height: 1.7;
+  }
+
+  .about-features {
+    gap: 1.2rem;
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+  }
+
+  .about-features strong {
+    font-size: 1.35rem;
+  }
+
+  .about-features span {
+    font-size: 0.76rem;
+  }
+}
+
+@media (max-width: 359px) {
+  .shell {
+    width: calc(100% - 20px);
+  }
+
+  .section-pad {
+    padding-block: 2.75rem;
+  }
+
+  .about-visual {
+    min-height: 320px;
+  }
+
+  .about-year-card {
+    width: 52%;
+    padding: 1rem;
+  }
+
+  .about-year-card .serif:first-child {
+    font-size: 1.35rem;
+  }
+
+  .about-year-card .serif:nth-child(2) {
+    font-size: 2.45rem;
+  }
+
+  .about-year-card p:last-child {
+    margin-top: 0.8rem;
+    font-size: 0.52rem;
+    line-height: 1.45;
+  }
+
+  .about-copy .eyebrow {
+    font-size: 0.55rem;
+    letter-spacing: 0.17em;
+  }
+
+  .about-copy .section-title {
+    margin-top: 0.75rem;
+    font-size: 1.25rem;
+    line-height: 1.02;
+  }
+
+  .about-copy > p.mt-6 {
+    margin-top: 1rem;
+    font-size: 0.78rem;
+    line-height: 1.65;
+  }
+
+  .about-description-grid {
+    gap: 0.8rem;
+    margin-top: 1rem;
+    font-size: 0.76rem;
+    line-height: 1.65;
+  }
+
+  .about-features {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.25rem;
+    padding-top: 1.1rem;
+  }
+
+  .about-features strong {
+    font-size: 1.15rem;
+  }
+
+  .about-features span {
+    font-size: 0.68rem;
+  }
+
+  .about-features .text-link {
+    font-size: 0.6rem;
+  }
+
+  .site-footer {
+    padding-block: 1.4rem;
+  }
+
+  .site-footer__content,
+  .site-footer__main {
+    gap: 1rem;
+  }
+
+  .site-footer .wordmark--compact {
+    align-self: flex-start;
+    font-size: 1.1rem;
+  }
+
+  .site-footer__nav {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, max-content);
+    justify-content: start;
+    column-gap: 1.5rem;
+    row-gap: 0.35rem;
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+  }
+
+  .site-footer__content > div:last-child {
+    padding-top: 0.8rem;
+    font-size: 0.58rem;
+  }
+}
+
 @media (max-width: 1100px) {
   .whatsapp-float span {
     display: none;

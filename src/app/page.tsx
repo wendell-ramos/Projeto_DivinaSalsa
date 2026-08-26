@@ -87,7 +87,7 @@ export default function Home() {
 
       <section id="a-casa" className="section-pad overflow-hidden bg-[var(--cream)]">
         <div className="shell grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
-          <div className="relative min-h-[420px] sm:min-h-[480px]">
+          <div className="about-visual relative min-h-[420px] sm:min-h-[480px]">
             <div className="absolute left-0 top-0 h-[88%] w-[78%] overflow-hidden rounded-[2px]">
               <Image
                 src={`${basePath}/images/mignon-germanica.jpg`}
@@ -97,7 +97,7 @@ export default function Home() {
                 className="object-cover"
               />
             </div>
-            <div className="absolute bottom-0 right-0 w-[56%] bg-[var(--sage)] p-6 text-white shadow-2xl sm:p-8">
+            <div className="about-year-card absolute bottom-0 right-0 w-[56%] bg-[var(--sage)] p-6 text-white shadow-2xl sm:p-8">
               <p className="serif text-4xl leading-none">Desde</p>
               <p className="serif mt-1 text-6xl leading-none">2016</p>
               <p className="mt-5 text-xs font-bold tracking-[0.18em] uppercase text-white/75">
@@ -106,7 +106,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="lg:pl-10">
+          <div className="about-copy lg:pl-10">
             <p className="eyebrow text-[var(--forest)]">Sobre o Divina Salsa</p>
             <h2 className="section-title mt-5 text-[var(--ink)]">
               Tradição e inovação servidas à mesma mesa.
@@ -115,7 +115,7 @@ export default function Home() {
               No coração do Passeio Pedra Branca, uma casa feita para reunir pessoas e transformar
               refeições em boas lembranças.
             </p>
-            <div className="mt-6 grid gap-5 text-[0.95rem] leading-7 text-[var(--muted)] sm:grid-cols-2">
+            <div className="about-description-grid mt-6 grid gap-5 text-[0.95rem] leading-7 text-[var(--muted)] sm:grid-cols-2">
               <p>
                 Ingredientes selecionados, receitas cuidadosas e pratos contemporâneos com a
                 tradição do sabor.
@@ -125,7 +125,7 @@ export default function Home() {
                 ser lembradas.
               </p>
             </div>
-            <div className="mt-9 flex flex-wrap items-center gap-7 border-t border-black/10 pt-7">
+            <div className="about-features mt-9 flex flex-wrap items-center gap-7 border-t border-black/10 pt-7">
               <div>
                 <strong className="serif block text-[1.7rem] text-[var(--forest)]">Da terra ao mar</strong>
                 <span className="text-sm text-[var(--muted)]">Carnes, pescados, massas e risotos</span>
