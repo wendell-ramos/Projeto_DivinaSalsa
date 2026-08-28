@@ -28,11 +28,11 @@ export function SiteHeader() {
 
         <a
           className="button button--light header-reserve"
-          href={restaurant.whatsapp}
+          href={restaurant.reservation}
           target="_blank"
           rel="noreferrer"
         >
-          Fale conosco
+          Reservar
           <Icon name="arrow-down-right" size={17} />
         </a>
 
@@ -46,8 +46,8 @@ export function SiteHeader() {
                 {item.label}
               </Link>
             ))}
-            <a href={restaurant.whatsapp} target="_blank" rel="noreferrer" onClick={closeMobileMenu}>
-              Fale conosco
+            <a href={restaurant.reservation} target="_blank" rel="noreferrer" onClick={closeMobileMenu}>
+              Reservar
             </a>
           </nav>
         </details>

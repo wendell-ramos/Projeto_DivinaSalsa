@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Icon } from "@/components/icon";
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
+import { PageHero } from "@/components/page-hero";
 import { restaurant } from "@/content/restaurant";
 
 const basePath = process.env.PAGES_BASE_PATH ?? "";
@@ -16,25 +15,13 @@ export const metadata: Metadata = {
 export default function ContatoPage() {
   return (
     <main className="contact-page">
-      <SiteHeader />
-
-      <section className="contact-hero text-white">
-        <Image
-          src={`${basePath}/images/risoto-camarao.jpg`}
-          alt="Risoto de camarão servido pelo Divina Salsa"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
-        />
-        <div className="contact-hero__overlay" />
-        <div className="shell relative z-10 flex min-h-[380px] items-end pb-12 pt-32 md:pb-14">
-          <div>
-            <p className="eyebrow text-[var(--olive-100)]">Visite o Divina Salsa</p>
-            <h1 className="display-title mt-5">Contato.</h1>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Visite o Divina Salsa"
+        title="Contato."
+        description="Horários, localização e os canais para falar com a nossa equipe."
+        image="/images/risoto-camarao.jpg"
+        imageAlt="Risoto de camarão servido pelo Divina Salsa"
+      />
 
       <section className="section-pad bg-[var(--cream)]">
         <div className="shell">
@@ -87,7 +74,7 @@ export default function ContatoPage() {
                   <Icon name="message" size={17} />
                   Falar pelo WhatsApp
                 </a>
-                <a className="button button--outline" href="tel:+554832830019">
+                <a className="button button--outline" href={restaurant.phoneHref}>
                   {restaurant.phone}
                 </a>
               </div>
@@ -137,7 +124,6 @@ export default function ContatoPage() {
         </div>
       </section>
 
-      <SiteFooter />
     </main>
   );
 }

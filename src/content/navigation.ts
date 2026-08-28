@@ -1,6 +1,7 @@
 export const siteNavigation = [
-  { label: "Sobre", href: "/#a-casa" },
+  { label: "Início", href: "/" },
+  { label: "Espaço", href: "/espaco" },
   { label: "Cardápio", href: "/cardapio" },
-  { label: "Experiências", href: "/#experiencias" },
-  { label: "Visite", href: "/contato" },
+  { label: "Eventos", href: "/eventos" },
+  { label: "Contato", href: "/contato" },
 ] as const;

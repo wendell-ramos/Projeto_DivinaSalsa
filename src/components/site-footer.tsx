@@ -36,7 +36,7 @@ export function SiteFooter() {
         aria-label="Falar com o Divina Salsa pelo WhatsApp"
       >
         <Icon name="message" size={22} />
-        <span>Fale conosco</span>
+        <span>WhatsApp</span>
       </a>
     </>
   );

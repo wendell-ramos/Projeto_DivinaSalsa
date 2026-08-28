@@ -1,10 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
+import { PageHero } from "@/components/page-hero";
 import { menuCategories, menuSections } from "@/content/menu";
-
-const basePath = process.env.PAGES_BASE_PATH ?? "";
 
 export const metadata: Metadata = {
   title: "Cardápio",
@@ -14,28 +10,13 @@ export const metadata: Metadata = {
 export default function CardapioPage() {
   return (
     <main className="menu-page">
-      <SiteHeader />
-
-      <section className="menu-page-hero text-white">
-        <Image
-          src={`${basePath}/images/camarao-tropical.jpg`}
-          alt="Camarão Tropical do Divina Salsa"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
-        />
-        <div className="menu-page-hero__overlay" />
-        <div className="shell relative z-10 flex min-h-[440px] items-end pb-12 pt-32 md:pb-14">
-          <div className="max-w-4xl">
-            <p className="eyebrow text-[var(--olive-100)]">Divina Salsa Restaurante</p>
-            <h1 className="display-title mt-6">Nosso cardápio.</h1>
-            <p className="mt-7 max-w-xl text-base leading-7 text-white/75">
-              Da primeira entrada ao último brinde, sabores preparados para todos os momentos.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Divina Salsa Restaurante"
+        title="Nosso cardápio."
+        description="Da primeira entrada ao último brinde, sabores preparados para todos os momentos."
+        image="/images/camarao-tropical.jpg"
+        imageAlt="Camarão Tropical do Divina Salsa"
+      />
 
       <section id="cardapio-completo" className="section-pad bg-[var(--paper)]">
         <div className="shell">
@@ -101,7 +82,6 @@ export default function CardapioPage() {
         </div>
       </section>
 
-      <SiteFooter />
     </main>
   );
 }

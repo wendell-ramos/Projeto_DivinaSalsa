@@ -1,8 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@/components/icon";
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
 import { experiences, menuHighlights, restaurant } from "@/content/restaurant";
 
 const basePath = process.env.PAGES_BASE_PATH ?? "";
@@ -30,8 +28,6 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-
-      <SiteHeader />
 
       <section id="inicio" className="hero min-h-[620px] text-white">
         <Image
@@ -275,7 +271,7 @@ export default function Home() {
                   <Icon name="message" size={17} />
                   Reservar pelo WhatsApp
                 </a>
-                <a className="button button--outline" href="tel:+554832830019">
+                <a className="button button--outline" href={restaurant.phoneHref}>
                   {restaurant.phone}
                 </a>
               </div>
@@ -331,7 +327,6 @@ export default function Home() {
         </div>
       </section>
 
-      <SiteFooter />
     </main>
   );
 }

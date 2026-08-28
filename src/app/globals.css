@@ -464,6 +464,52 @@ a:focus-visible {
     linear-gradient(0deg, rgb(var(--overlay-rgb) / 0.66), transparent 62%);
 }
 
+.inner-page-hero {
+  position: relative;
+  min-height: 420px;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--olive-950);
+}
+
+.inner-page-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(90deg, rgb(var(--overlay-rgb) / 0.9) 0%, rgb(var(--overlay-rgb) / 0.56) 58%, rgb(var(--overlay-rgb) / 0.22) 100%),
+    linear-gradient(0deg, rgb(var(--overlay-rgb) / 0.72) 0%, transparent 62%);
+}
+
+.event-card {
+  min-height: 220px;
+  padding: 2rem;
+  border: 1px solid rgb(var(--olive-900-rgb) / 0.1);
+  background: var(--paper);
+}
+
+.event-card > span {
+  color: var(--sage-dark);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.event-card h3 {
+  margin-top: 2rem;
+  color: var(--ink);
+  font-family: var(--font-editorial);
+  font-size: 1.7rem;
+  line-height: 1.05;
+}
+
+.event-card p {
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+
 .menu-intro {
   display: flex;
   flex-direction: column;
