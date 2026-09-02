@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function CardapioPage() {
   return (
-    <main className="menu-page">
+    <main>
       <PageHero
         eyebrow="Divina Salsa Restaurante"
         title="Nosso cardápio."

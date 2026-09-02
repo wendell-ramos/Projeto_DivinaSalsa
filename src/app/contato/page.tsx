@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function ContatoPage() {
   return (
-    <main className="contact-page">
+    <main>
       <PageHero
         eyebrow="Visite o Divina Salsa"
         title="Contato."
