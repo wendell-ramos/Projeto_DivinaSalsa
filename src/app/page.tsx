@@ -289,8 +289,8 @@ export default function Home() {
 
             <div className="relative min-h-[340px] sm:min-h-[400px]">
               <Image
-                src={`${basePath}/images/risoto-camarao.jpg`}
-                alt="Risoto de camarão do Divina Salsa"
+                src={`${basePath}/images/espaco-fachada.jpg`}
+                alt="Fachada do Divina Salsa Restaurante no Passeio Pedra Branca"
                 fill
                 sizes="(max-width: 1024px) 100vw, 45vw"
                 className="object-cover"

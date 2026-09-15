@@ -1,0 +1,91 @@
+.page { background: var(--paper); --event-line: #d8dccf; }
+.page a { transition: background-color .2s ease, color .2s ease; }
+.page :is(a, summary):focus-visible { outline: 2px solid var(--sage); outline-offset: 5px; }
+.page h2 { font: 400 clamp(27px, 2.7vw, 35px)/1.15 var(--font-editorial); letter-spacing: -.5px; margin: 12px 0; text-wrap: balance; }
+.page h3 { font: 400 24px/1.2 var(--font-editorial); }
+.hero { background: linear-gradient(115deg, var(--olive-950), var(--forest)); color: var(--paper); padding: 104px 0 36px; border-bottom: 3px solid var(--sage); }
+.heroGrid { display: grid; grid-template-columns: 1fr 1.08fr; gap: 48px; align-items: center; }
+.heroCopy h1 { font: 400 clamp(38px, 4vw, 56px)/1.08 var(--font-editorial); letter-spacing: -1.3px; margin: 18px 0; }
+.heroCopy h1 em { color: var(--olive-300); }
+.heroCopy h1::after { content: ""; display: block; width: 48px; height: 1px; background: var(--sage); margin-top: 22px; }
+.heroCopy > p:not(:first-child) { max-width: 360px; font-size: 14px; line-height: 1.8; color: var(--olive-100); margin-bottom: 24px; }
+.heroPhoto { position: relative; height: 410px; margin: 0; overflow: hidden; border-radius: 90px 0 0 0; border: 1px solid rgb(255 255 255 / 18%); }
+.heroPhoto img { object-position: center 72%; }
+.heroPhoto figcaption { position: absolute; bottom: 0; width: 100%; padding: 45px 22px 18px; background: linear-gradient(transparent, #000c); font: italic 22px/1.3 var(--font-editorial); }
+.heroLink { display: flex; width: fit-content; gap: 10px; align-items: center; font-size: 11px; margin-top: 18px; color: var(--olive-100); }
+.heroLink:hover, .textLink:hover { text-decoration: underline; text-underline-offset: 4px; }
+.occasions, .planning { padding-block: 38px; scroll-margin-top: 85px; }
+.heading { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 24px; }
+.heading > p { max-width: 330px; font-size: 13px; line-height: 1.8; color: var(--muted); }
+.occasionGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.occasionGrid article { padding: 22px; border: 1px solid var(--event-line); background: linear-gradient(135deg, var(--paper), var(--cream)); }
+.occasionGrid article .number { border-bottom: 1px solid var(--event-line); padding-bottom: 12px; margin-bottom: 16px; }
+.number { display: block; font-size: 10px; letter-spacing: 2px; color: var(--sage-dark); margin-bottom: 12px; }
+.occasionGrid p, .steps p { font-size: 13px; line-height: 1.8; color: var(--muted); margin-top: 10px; }
+.experience { padding-block: 32px; background: var(--cream); border-block: 1px solid var(--event-line); }
+.experienceGrid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 42px; align-items: center; }
+.experienceCopy { grid-column: 1; grid-row: 1; padding-left: 22px; border-left: 1px solid var(--sage); }
+.photoPair { grid-column: 2; display: grid; grid-template-columns: 1.15fr .85fr; gap: 16px; align-items: end; }
+.photoPair figure { margin: 0; min-width: 0; }
+.foodPhoto, .detailPhoto { position: relative; overflow: hidden; }
+.foodPhoto { height: 340px; }
+.detailPhoto { height: 280px; border-radius: 65px 0 0 0; }
+.foodPhoto img { object-position: center 58%; }
+.detailPhoto img { object-position: center 65%; }
+.photoPair figcaption { font-size: 10px; color: var(--muted); padding-top: 9px; }
+.experienceCopy > p:not(:first-child) { font-size: 13px; line-height: 1.8; color: var(--muted); margin-top: 14px; }
+.textLink { display: inline-flex; gap: 10px; align-items: center; font-weight: 600; font-size: 12px; margin-top: 20px; }
+.caption { font-size: 10px; line-height: 1.6; color: var(--muted); padding-top: 18px; }
+.steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); list-style: none; padding: 0; margin: 0; gap: 26px; }
+.steps li { border-top: 1px solid var(--olive-300); padding-top: 18px; display: flex; align-items: start; gap: 14px; }
+.steps .number { flex: 0 0 34px; height: 34px; display: grid; place-items: center; border: 1px solid var(--event-line); border-radius: 50%; letter-spacing: 0; margin: 0; }
+.steps h3 { font-size: 22px; }
+.faq { padding-block: 32px; background: var(--cream); }
+.faqGrid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 48px; }
+.faqGrid > div > p:not(:first-child) { max-width: 310px; font-size: 13px; line-height: 1.8; color: var(--muted); }
+.faq details { border: 1px solid var(--event-line); background: var(--paper); margin-bottom: 8px; }
+.faq details:last-child { margin-bottom: 0; }
+.faq summary { cursor: pointer; padding: 16px 18px; display: flex; align-items: center; justify-content: space-between; gap: 18px; font-size: 13px; font-weight: 600; list-style: none; }
+.faq summary:hover { background: #e5e8de66; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary span { font-size: 21px; font-weight: 400; color: var(--sage-dark); }
+.faq details[open] summary span { transform: rotate(45deg); }
+.faq details p { padding: 0 18px 18px; font-size: 13px; line-height: 1.8; color: var(--muted); }
+.contact { padding-block: 22px; background: linear-gradient(120deg, var(--forest), var(--olive-950)); color: var(--paper); border-top: 1px solid var(--sage); }
+.contactGrid { display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+.contact h2 { font-size: clamp(24px, 2.2vw, 29px); margin: 8px 0 0; text-wrap: initial; }
+.contact h2 em { display: inline-block; }
+.contact h2 em { color: var(--olive-300); }
+.contactActions { display: flex; flex-direction: column; gap: 8px; align-items: center; flex-shrink: 0; }
+.contactActions span { font-size: 10px; color: var(--olive-300); }
+@media(max-width: 900px) { .heroGrid, .experienceGrid, .faqGrid { gap: 26px; } .heroPhoto { height: 380px; } .occasionGrid article { padding-inline: 16px; } .foodPhoto { height: 290px; } .detailPhoto { height: 230px; } }
+@media(max-width: 640px) {
+  .experienceCopy { grid-column: auto; grid-row: auto; padding-left: 16px; }
+  .photoPair { grid-column: auto; }
+  .contactActions { border-left: 0; padding-left: 0; }
+  .hero { padding-top: 90px; padding-bottom: 24px; }
+  .heroGrid, .experienceGrid, .faqGrid { grid-template-columns: 1fr; gap: 24px; }
+  .heroCopy h1 { font-size: 38px; }
+  .heroCopy > p:not(:first-child) { font-size: 13px; margin-bottom: 18px; }
+  .heroPhoto { height: 280px; border-radius: 65px 0 0 0; }
+  .heroPhoto figcaption { font-size: 20px; }
+  .heading { display: block; margin-bottom: 18px; }
+  .heading > p { margin-top: 10px; }
+  .occasions, .planning { padding-block: 28px; }
+  .occasionGrid, .steps { grid-template-columns: 1fr; }
+  .occasionGrid { gap: 10px; }
+  .occasionGrid article { padding: 18px; }
+  .occasionGrid article .number { float: none; padding: 0; border: 0; margin: 0 0 8px; }
+  .occasionGrid p { margin-left: 0; }
+  .page h3 { font-size: 23px; }
+  .experience, .faq { padding-block: 26px; }
+  .foodPhoto { height: 260px; }
+  .detailPhoto { height: 215px; }
+  .steps { gap: 18px; }
+  .steps li { display: flex; gap: 16px; }
+  .steps .number { padding-top: 0; flex-shrink: 0; }
+  .contactGrid { flex-direction: column; align-items: start; gap: 16px; }
+  .contact h2 { font-size: 25px; max-width: 330px; }
+  .contactActions { align-items: start; }
+}
+@media(prefers-reduced-motion: reduce) { .page a { transition: none; } }

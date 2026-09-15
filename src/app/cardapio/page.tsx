@@ -14,8 +14,9 @@ export default function CardapioPage() {
         eyebrow="Divina Salsa Restaurante"
         title="Nosso cardápio."
         description="Da primeira entrada ao último brinde, sabores preparados para todos os momentos."
-        image="/images/camarao-tropical.jpg"
-        imageAlt="Camarão Tropical do Divina Salsa"
+        image="/images/risoto-camarao.jpg"
+        imageAlt="Risoto de camarão do Divina Salsa servido à mesa"
+        imagePosition="object-[center_60%]"
       />
 
       <section id="cardapio-completo" className="section-pad bg-[var(--paper)]">
