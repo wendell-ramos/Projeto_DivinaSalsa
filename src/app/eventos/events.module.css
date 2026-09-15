@@ -59,6 +59,14 @@
 .contactActions { display: flex; flex-direction: column; gap: 8px; align-items: center; flex-shrink: 0; }
 .contactActions span { font-size: 10px; color: var(--olive-300); }
 @media(max-width: 900px) { .heroGrid, .experienceGrid, .faqGrid { gap: 26px; } .heroPhoto { height: 380px; } .occasionGrid article { padding-inline: 16px; } .foodPhoto { height: 290px; } .detailPhoto { height: 230px; } }
+@media (min-width: 641px) and (max-width: 900px) {
+  .occasionGrid, .steps { grid-template-columns: 1fr; gap: 12px; }
+  .occasionGrid article { display: grid; grid-template-columns: 32px minmax(0, 1fr); column-gap: 16px; padding: 18px 20px; }
+  .occasionGrid article .number { grid-row: 1 / 3; border: 0; padding: 5px 0 0; margin: 0; }
+  .occasionGrid p { grid-column: 2; margin-top: 6px; }
+  .steps li { padding-top: 14px; }
+  .steps p { margin-top: 6px; }
+}
 @media(max-width: 640px) {
   .experienceCopy { grid-column: auto; grid-row: auto; padding-left: 16px; }
   .photoPair { grid-column: auto; }
@@ -67,7 +75,7 @@
   .heroGrid, .experienceGrid, .faqGrid { grid-template-columns: 1fr; gap: 24px; }
   .heroCopy h1 { font-size: 38px; }
   .heroCopy > p:not(:first-child) { font-size: 13px; margin-bottom: 18px; }
-  .heroPhoto { height: 280px; border-radius: 65px 0 0 0; }
+  .heroPhoto { height: clamp(210px, 58vw, 280px); border-radius: 65px 0 0 0; }
   .heroPhoto figcaption { font-size: 20px; }
   .heading { display: block; margin-bottom: 18px; }
   .heading > p { margin-top: 10px; }
@@ -79,8 +87,8 @@
   .occasionGrid p { margin-left: 0; }
   .page h3 { font-size: 23px; }
   .experience, .faq { padding-block: 26px; }
-  .foodPhoto { height: 260px; }
-  .detailPhoto { height: 215px; }
+  .foodPhoto { height: clamp(205px, 60vw, 260px); }
+  .detailPhoto { height: clamp(175px, 50vw, 215px); }
   .steps { gap: 18px; }
   .steps li { display: flex; gap: 16px; }
   .steps .number { padding-top: 0; flex-shrink: 0; }

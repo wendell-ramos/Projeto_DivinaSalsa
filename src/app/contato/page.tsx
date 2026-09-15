@@ -32,11 +32,11 @@ export default function ContatoPage() {
       <section className={`${styles.visit} bg-[var(--cream)]`}>
         <div className="shell">
           <div className="grid overflow-hidden border border-black/10 bg-[var(--paper)] lg:grid-cols-[1.05fr_0.95fr]">
-            <div className="p-7 sm:p-10 lg:p-14">
+            <div className="visit-copy p-7 sm:p-10 lg:p-14">
               <p className="eyebrow text-[var(--forest)]">Planeje sua visita</p>
               <h2 className="section-title mt-5 max-w-xl">Sua mesa está esperando.</h2>
 
-              <div className="mt-10 grid gap-9 sm:grid-cols-2">
+              <div className="visit-details mt-10 grid gap-9 sm:grid-cols-2">
                 <div>
                   <Icon name="clock" className="text-[var(--sage-dark)]" size={22} />
                   <h3 className="mt-4 text-xs font-bold tracking-[0.18em] uppercase">Horários</h3>
@@ -73,7 +73,7 @@ export default function ContatoPage() {
               </div>
             </div>
 
-            <div className="relative min-h-[340px] sm:min-h-[400px]">
+            <div className="visit-photo relative min-h-[340px] sm:min-h-[400px]">
               <Image
                 src={`${basePath}/images/espaco-fachada.jpg`}
                 alt="Fachada do Divina Salsa Restaurante no Passeio Pedra Branca"
@@ -81,7 +81,7 @@ export default function ContatoPage() {
                 sizes="(max-width: 1024px) 100vw, 45vw"
                 className="object-cover"
               />
-              <div className="absolute inset-x-6 bottom-6 bg-[var(--cream)] p-6 sm:inset-x-8 sm:bottom-8">
+              <div className="visit-caption absolute inset-x-6 bottom-6 bg-[var(--cream)] p-6 sm:inset-x-8 sm:bottom-8">
                 <div className="flex items-center gap-4">
                   <Image
                     src={`${basePath}/images/logo-divina-salsa.png`}

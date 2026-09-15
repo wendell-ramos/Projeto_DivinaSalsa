@@ -446,6 +446,9 @@ a:focus-visible {
 }
 
 .mobile-menu nav {
+  max-height: calc(100dvh - 100px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
   position: absolute;
   top: calc(100% + 0.75rem);
   right: 0;
@@ -486,6 +489,22 @@ a:focus-visible {
   border-bottom: 0;
   background: var(--forest);
   color: white;
+}
+
+@media (max-width: 639px) {
+  .visit-copy { padding: 22px 20px; }
+  .visit-copy .section-title { margin-top: 12px; font-size: 30px; line-height: 1.15; }
+  .visit-details { margin-top: 24px; gap: 22px; }
+  .visit-details > div { display: grid; grid-template-columns: 22px minmax(0, 1fr); column-gap: 10px; align-items: center; }
+  .visit-details h3 { margin-top: 0; }
+  .visit-details > div > :not(svg):not(h3) { grid-column: 1 / -1; }
+  .visit-details > div > div, .visit-details > div > p { margin-top: 10px; }
+  .visit-details .map-link { margin-top: 12px; justify-self: start; min-height: 44px; }
+  .visit-copy .channel-actions { margin-top: 24px; }
+  .visit-photo { min-height: 260px; }
+  .visit-caption { inset-inline: 16px; bottom: 16px; padding: 16px; }
+  .visit-caption .serif { font-size: 18px; }
+  .visit-caption .visit-brandmark { width: 72px; flex-shrink: 0; }
 }
 
 .text-link {
