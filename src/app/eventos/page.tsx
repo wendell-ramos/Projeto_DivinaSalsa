@@ -16,26 +16,17 @@ const occasions = [
   {
     number: "01",
     title: "Celebrações",
-    text: "Aniversários e datas que merecem uma mesa especial.",
-    image: "/images/cardapio/dadinho-de-tapioca.jpg",
-    imageAlt: "Dadinho de tapioca servido para compartilhar",
-    className: "events-gallery__card--large",
+    text: "Datas especiais compartilhadas com quem faz parte da sua história.",
   },
   {
     number: "02",
     title: "Encontros",
-    text: "Família, amigos ou equipe reunidos com boa gastronomia.",
-    image: "/images/cardapio/massa-mignon-funghi.png",
-    imageAlt: "Massa com mignon e funghi servida pelo Divina Salsa",
-    className: "",
+    text: "Família, amigos ou equipe reunidos ao redor da mesma mesa.",
   },
   {
     number: "03",
-    title: "Brindes",
-    text: "Momentos leves para conversar, brindar e aproveitar sem pressa.",
-    image: "/images/cardapio/stella-pure-gold.jpg",
-    imageAlt: "Cerveja gelada para um brinde",
-    className: "",
+    title: "Bons momentos",
+    text: "Uma ocasião simples também pode se transformar em uma boa lembrança.",
   },
 ] as const;
 
@@ -43,17 +34,17 @@ const planningSteps = [
   {
     number: "01",
     title: "Conte a ocasião",
-    text: "Fale com a equipe e compartilhe a data e o tipo de encontro que está imaginando.",
+    text: "Compartilhe a data, o número de pessoas e o encontro que está imaginando.",
   },
   {
     number: "02",
-    title: "Alinhe os detalhes",
-    text: "A casa confirma disponibilidade e orienta sobre as possibilidades para o momento.",
+    title: "Consulte a casa",
+    text: "A equipe confirma a disponibilidade e apresenta as possibilidades para o momento.",
   },
   {
     number: "03",
-    title: "Aproveite a experiência",
-    text: "Com tudo combinado, é só reunir as pessoas e aproveitar a mesa.",
+    title: "Combine os detalhes",
+    text: "Com as informações alinhadas, é só reunir as pessoas e aproveitar.",
   },
 ] as const;
 
@@ -62,10 +53,10 @@ export default function EventosPage() {
     <main className="events-page">
       <PageHero
         eyebrow="Celebre no Divina"
-        title="Momentos à mesa."
-        description="Uma casa para reunir pessoas, celebrar histórias e aproveitar cada encontro."
-        image="/images/cardapio/destilado.jpg"
-        imageAlt="Copos preparados para um brinde"
+        title="Encontros que ficam na memória."
+        description="Boa comida, uma casa acolhedora e motivos para reunir quem importa."
+        image="/images/evento-detalhes.jpg"
+        imageAlt="Mesas preparadas para receber uma celebração no Divina Salsa"
         imagePosition="object-center"
       />
 
@@ -73,75 +64,71 @@ export default function EventosPage() {
         <div className="shell events-intro__layout">
           <div>
             <p className="eyebrow text-[var(--forest)]">Encontros com sabor</p>
-            <h2 className="section-title mt-5">Cada ocasião ganha um novo significado.</h2>
+            <h2 className="section-title mt-5">A mesa é o começo de toda celebração.</h2>
           </div>
           <div className="events-intro__copy">
             <p>
-              Seja para comemorar uma data, reunir quem importa ou simplesmente viver uma noite
-              diferente, o Divina Salsa recebe cada encontro com boa comida e acolhimento.
+              O Divina Salsa recebe encontros de diferentes tamanhos e histórias. Para entender
+              o que é possível preparar para a sua ocasião, converse diretamente com a equipe.
             </p>
-            <a
-              className="text-link"
-              href={restaurant.whatsapp}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Conversar com a equipe <Icon name="arrow-right" size={16} />
+            <a className="text-link" href="#como-organizar">
+              Como organizar <Icon name="arrow-down-right" size={16} />
             </a>
           </div>
         </div>
       </section>
 
-      <section className="events-occasions text-white">
-        <div className="shell">
-          <div className="events-occasions__heading">
-            <div>
-              <p className="eyebrow text-[var(--olive-300)]">Para diferentes histórias</p>
-              <h2 className="serif mt-4">Um lugar, muitos motivos para celebrar.</h2>
-            </div>
-            <p>
-              As condições de cada encontro são confirmadas diretamente com a equipe do
-              restaurante.
-            </p>
+      <section className="events-experience text-white">
+        <div className="shell events-experience__layout">
+          <div className="events-experience__visuals">
+            <figure className="events-experience__image events-experience__image--main">
+              <Image
+                src={`${basePath}/images/evento-encontro.jpg`}
+                alt="Preparação da casa para receber um encontro"
+                fill
+                sizes="(max-width: 767px) 65vw, 38vw"
+                className="object-cover"
+              />
+            </figure>
+            <figure className="events-experience__image events-experience__image--detail">
+              <Image
+                src={`${basePath}/images/evento-detalhes.jpg`}
+                alt="Mesas organizadas para uma celebração"
+                fill
+                sizes="(max-width: 767px) 44vw, 22vw"
+                className="object-cover"
+              />
+            </figure>
           </div>
 
-          <div className="events-gallery">
-            {occasions.map((occasion) => (
-              <article
-                className={`events-gallery__card ${occasion.className}`.trim()}
-                key={occasion.title}
-              >
-                <Image
-                  src={`${basePath}${occasion.image}`}
-                  alt={occasion.imageAlt}
-                  fill
-                  sizes="(max-width: 767px) 100vw, 50vw"
-                  className="object-cover"
-                />
-                <div className="events-gallery__overlay" />
-                <div className="events-gallery__content">
+          <div className="events-experience__content">
+            <p className="eyebrow text-[var(--olive-300)]">Para diferentes histórias</p>
+            <h2 className="serif">Um lugar, muitos motivos para estar junto.</h2>
+            <div className="events-experience__list">
+              {occasions.map((occasion) => (
+                <article key={occasion.title}>
                   <span>{occasion.number}</span>
                   <div>
                     <h3>{occasion.title}</h3>
                     <p>{occasion.text}</p>
                   </div>
-                </div>
-              </article>
-            ))}
+                </article>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="events-process bg-[var(--paper)]">
-        <div className="shell events-process__layout">
+      <section className="events-process bg-[var(--paper)]" id="como-organizar">
+        <div className="shell">
           <div className="events-process__intro">
             <div>
               <p className="eyebrow text-[var(--forest)]">Como organizar</p>
               <h2 className="section-title mt-5">Comece com uma conversa.</h2>
             </div>
             <p>
-              Ainda não é necessário ter tudo definido. A equipe ajuda a entender as
-              possibilidades disponíveis para a sua ocasião.
+              Não precisa ter tudo definido. Envie as informações iniciais pelo WhatsApp e a
+              equipe orienta os próximos passos.
             </p>
           </div>
 
@@ -156,35 +143,20 @@ export default function EventosPage() {
               </article>
             ))}
           </div>
-        </div>
-      </section>
 
-      <section className="events-contact bg-[var(--cream)]">
-        <div className="shell events-contact__layout">
-          <div className="events-contact__image">
-            <Image
-              src={`${basePath}/images/cardapio/iscas-de-peixe.jpg`}
-              alt="Petisco e bebida sobre a mesa do Divina Salsa"
-              fill
-              sizes="(max-width: 767px) 100vw, 48vw"
-              className="object-cover"
-            />
-          </div>
-          <div className="events-contact__content">
-            <p className="eyebrow text-[var(--forest)]">Seu momento no Divina</p>
-            <h2 className="section-title mt-5">Vamos conversar sobre a sua ideia?</h2>
-            <p>
-              Entre em contato para consultar disponibilidade e alinhar os detalhes diretamente
-              com o restaurante.
-            </p>
+          <div className="events-process__cta">
+            <div>
+              <p className="eyebrow">Seu momento no Divina</p>
+              <h2 className="serif">Vamos conversar sobre a sua ideia?</h2>
+            </div>
             <a
-              className="button button--dark"
+              className="button button--light"
               href={restaurant.whatsapp}
               target="_blank"
               rel="noreferrer"
             >
               <Icon name="message" size={17} />
-              Falar pelo WhatsApp
+              Consultar disponibilidade
             </a>
           </div>
         </div>

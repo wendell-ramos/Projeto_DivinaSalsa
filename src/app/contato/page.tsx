@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { DeliveryCard, ReservationCard } from "@/components/delivery-card";
 import { Icon } from "@/components/icon";
 import { PageHero } from "@/components/page-hero";
 import { restaurant } from "@/content/restaurant";
@@ -54,7 +55,7 @@ export default function ContatoPage() {
                     {restaurant.address}
                   </p>
                   <a
-                    className="text-link mt-5"
+                    className="map-link mt-5"
                     href={restaurant.maps}
                     target="_blank"
                     rel="noreferrer"
@@ -64,19 +65,9 @@ export default function ContatoPage() {
                 </div>
               </div>
 
-              <div className="mt-9 flex flex-wrap gap-3">
-                <a
-                  className="button button--dark"
-                  href={restaurant.whatsapp}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <Icon name="message" size={17} />
-                  Falar pelo WhatsApp
-                </a>
-                <a className="button button--outline" href={restaurant.phoneHref}>
-                  {restaurant.phone}
-                </a>
+              <div className="channel-actions mt-9">
+                <ReservationCard />
+                <DeliveryCard />
               </div>
             </div>
 
@@ -90,9 +81,13 @@ export default function ContatoPage() {
               />
               <div className="absolute inset-x-6 bottom-6 bg-[var(--cream)] p-6 sm:inset-x-8 sm:bottom-8">
                 <div className="flex items-center gap-4">
-                  <span className="flex size-11 items-center justify-center rounded-full bg-[var(--forest)] text-white">
-                    <Icon name="utensils" size={18} />
-                  </span>
+                  <Image
+                    src={`${basePath}/images/logo-divina-salsa.png`}
+                    alt="Marca oficial Divina Salsa Restaurante"
+                    width={1239}
+                    height={689}
+                    className="visit-brandmark"
+                  />
                   <div>
                     <p className="serif text-xl text-[var(--ink)]">Passeio Pedra Branca</p>
                     <p className="mt-1 text-xs tracking-wider text-[var(--muted)] uppercase">

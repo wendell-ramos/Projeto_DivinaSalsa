@@ -4,30 +4,26 @@ export const restaurant = {
   since: 2016,
   description:
     "Gastronomia contemporânea com a tradição do sabor, no coração da Pedra Branca.",
-  address: "Rua da Universidade, 346 - Passeio Pedra Branca, Palhoça - SC",
-  phone: "(48) 3283-0019",
+  address: "Passeio Pedra Branca, Palhoça - SC",
+  phone: "(48) 3283.0019",
   phoneHref: "tel:+554832830019",
   whatsapp: "https://wa.me/554832830019",
   reservation: "https://wa.me/554832830019",
-  reservationConfirmed: false,
   instagram: "https://www.instagram.com/divinasalsa/",
   maps:
     "https://www.google.com/maps/search/?api=1&query=Divina+Salsa+Restaurante+Pedra+Branca+Palhoca+SC",
   ifood:
-    "https://www.ifood.com.br/delivery/palhoca-sc/divina-salsa-restaurante-pedra-branca/a98ac1e8-b1f5-4374-bf46-d5d95de6e611",
+    "https://www.ifood.com.br/delivery/palhoca-sc/divina-salsa-restaurante-pedra-branca/",
   hours: [
     { days: "Domingo e segunda", time: "11h30 às 15h" },
-    { days: "Terça a sábado", time: "11h30 às 15h · 18h às 22h30" },
+    { days: "Terça a sábado", time: "11h30 às 15h · 18h às 20h30" },
   ],
 } as const;
 
 export const pendingRestaurantContent = [
   "Slogans oficiais",
-  "Fotos oficiais do espaço, fachada, pratos, bebidas e eventos",
-  "Confirmação dos horários de funcionamento",
-  "Confirmação do telefone e WhatsApp",
-  "Link oficial de reservas",
-  "Links atualizados de delivery e redes sociais",
+  "Endereço completo com rua e número",
+  "Texto institucional sobre a história da casa",
 ] as const;
 
 export const menuHighlights = [

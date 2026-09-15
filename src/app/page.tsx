@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { DeliveryCard, ReservationCard } from "@/components/delivery-card";
 import { Icon } from "@/components/icon";
 import { experiences, menuHighlights, restaurant } from "@/content/restaurant";
 
@@ -14,12 +15,31 @@ export default function Home() {
     telephone: restaurant.phone,
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Rua da Universidade, 346 - Passeio Pedra Branca",
       addressLocality: "Palhoça",
       addressRegion: "SC",
       addressCountry: "BR",
     },
-    sameAs: [restaurant.instagram],
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Sunday", "Monday"],
+        opens: "11:30",
+        closes: "15:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        opens: "11:30",
+        closes: "15:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        opens: "18:00",
+        closes: "20:30",
+      },
+    ],
+    sameAs: [restaurant.instagram, restaurant.ifood],
   };
 
   return (
@@ -251,7 +271,7 @@ export default function Home() {
                     {restaurant.address}
                   </p>
                   <a
-                    className="text-link mt-5"
+                    className="map-link mt-5"
                     href={restaurant.maps}
                     target="_blank"
                     rel="noreferrer"
@@ -261,19 +281,9 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="mt-10 flex flex-wrap gap-3">
-                <a
-                  className="button button--dark"
-                  href={restaurant.whatsapp}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <Icon name="message" size={17} />
-                  Reservar pelo WhatsApp
-                </a>
-                <a className="button button--outline" href={restaurant.phoneHref}>
-                  {restaurant.phone}
-                </a>
+              <div className="channel-actions mt-10">
+                <ReservationCard />
+                <DeliveryCard />
               </div>
             </div>
 
@@ -287,9 +297,13 @@ export default function Home() {
               />
               <div className="absolute inset-x-6 bottom-6 bg-[var(--cream)] p-6 sm:inset-x-8 sm:bottom-8">
                 <div className="flex items-center gap-4">
-                  <span className="flex size-11 items-center justify-center rounded-full bg-[var(--forest)] text-white">
-                    <Icon name="utensils" size={18} />
-                  </span>
+                  <Image
+                    src={`${basePath}/images/logo-divina-salsa.png`}
+                    alt="Marca oficial Divina Salsa Restaurante"
+                    width={1239}
+                    height={689}
+                    className="visit-brandmark"
+                  />
                   <div>
                     <p className="serif text-xl text-[var(--ink)]">Passeio Pedra Branca</p>
                     <p className="mt-1 text-xs tracking-wider text-[var(--muted)] uppercase">Palhoça · Santa Catarina</p>
