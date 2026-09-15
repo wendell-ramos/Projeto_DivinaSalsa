@@ -1,0 +1,21 @@
+.page { background: var(--paper); }
+.hero { padding: 104px 0 28px; background: var(--forest); color: var(--paper); }
+.heroGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: center; }
+.hero h1 { font: 400 clamp(34px, 3.6vw, 48px)/1.1 var(--font-editorial); letter-spacing: -1px; margin: 16px 0; text-wrap: balance; }
+.hero p:last-child { color: var(--olive-100); font-size: 14px; line-height: 1.7; }
+.heroPhoto { position: relative; height: 250px; overflow: hidden; }
+.heroPhoto img { object-position: center 60%; }
+.visit { padding-block: 38px; }
+.channels { padding-block: 22px; background: var(--olive-700); color: var(--paper); }
+.channelGrid { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.channels h2 { font: 400 clamp(23px, 2.3vw, 29px)/1.2 var(--font-editorial); margin: 0; }
+.social { display: inline-flex; align-items: center; gap: 12px; padding: 12px 16px; border: 1px solid rgb(255 255 255 / 40%); font-size: 12px; font-weight: 600; flex-shrink: 0; }
+.social:hover { background: var(--forest); }
+@media(max-width: 640px) {
+  .visit { padding-block: 24px; }
+  .hero { padding-top: 96px; padding-bottom: 22px; }
+  .heroGrid { grid-template-columns: 1fr; gap: 20px; }
+  .heroPhoto { height: 185px; }
+  .channelGrid { flex-direction: column; align-items: start; gap: 16px; }
+  .channels { padding-block: 22px; }
+}

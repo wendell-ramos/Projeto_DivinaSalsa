@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { DeliveryCard, ReservationCard } from "@/components/delivery-card";
 import { Icon } from "@/components/icon";
-import { PageHero } from "@/components/page-hero";
 import { restaurant } from "@/content/restaurant";
+import styles from "./contact.module.css";
 
 const basePath = process.env.PAGES_BASE_PATH ?? "";
 
@@ -15,26 +15,28 @@ export const metadata: Metadata = {
 
 export default function ContatoPage() {
   return (
-    <main>
-      <PageHero
-        eyebrow="Visite o Divina Salsa"
-        title="Contato."
-        description="Horários, localização e os canais para falar com a nossa equipe."
-        image="/images/risoto-camarao.jpg"
-        imageAlt="Risoto de camarão servido pelo Divina Salsa"
-      />
+    <main className={styles.page}>
+      <section className={styles.hero}>
+        <div className={`shell ${styles.heroGrid}`}>
+          <div>
+            <p className="eyebrow">Visite o Divina Salsa</p>
+            <h1>Vamos nos encontrar.</h1>
+            <p>O próximo bom momento começa com uma visita.</p>
+          </div>
+          <div className={styles.heroPhoto}>
+            <Image src={`${basePath}/images/espaco-salao.jpg`} alt="Mesas de madeira e iluminação acolhedora do Divina Salsa" fill priority sizes="(max-width: 640px) 94vw, (max-width: 1100px) 50vw, 530px" className="object-cover" />
+          </div>
+        </div>
+      </section>
 
-      <section className="section-pad bg-[var(--cream)]">
+      <section className={`${styles.visit} bg-[var(--cream)]`}>
         <div className="shell">
           <div className="grid overflow-hidden border border-black/10 bg-[var(--paper)] lg:grid-cols-[1.05fr_0.95fr]">
-            <div className="p-7 sm:p-10 lg:p-12">
+            <div className="p-7 sm:p-10 lg:p-14">
               <p className="eyebrow text-[var(--forest)]">Planeje sua visita</p>
               <h2 className="section-title mt-5 max-w-xl">Sua mesa está esperando.</h2>
-              <p className="mt-6 max-w-lg text-base leading-7 text-[var(--muted)]">
-                Consulte os horários e encontre o Divina Salsa no coração do Passeio Pedra Branca.
-              </p>
 
-              <div className="mt-9 grid gap-8 sm:grid-cols-2">
+              <div className="mt-10 grid gap-9 sm:grid-cols-2">
                 <div>
                   <Icon name="clock" className="text-[var(--sage-dark)]" size={22} />
                   <h3 className="mt-4 text-xs font-bold tracking-[0.18em] uppercase">Horários</h3>
@@ -65,16 +67,16 @@ export default function ContatoPage() {
                 </div>
               </div>
 
-              <div className="channel-actions mt-9">
+              <div className="channel-actions mt-10">
                 <ReservationCard />
                 <DeliveryCard />
               </div>
             </div>
 
-            <div className="relative min-h-[360px] sm:min-h-[420px] lg:min-h-[480px]">
+            <div className="relative min-h-[340px] sm:min-h-[400px]">
               <Image
-                src={`${basePath}/images/risoto-camarao.jpg`}
-                alt="Risoto de camarão do Divina Salsa"
+                src={`${basePath}/images/espaco-fachada.jpg`}
+                alt="Fachada do Divina Salsa Restaurante no Passeio Pedra Branca"
                 fill
                 sizes="(max-width: 1024px) 100vw, 45vw"
                 className="object-cover"
@@ -101,21 +103,10 @@ export default function ContatoPage() {
         </div>
       </section>
 
-      <section className="bg-[var(--sage)] py-10 text-white">
-        <div className="shell flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
-          <div>
-            <p className="eyebrow text-white/70">Acompanhe o Divina</p>
-            <h2 className="serif mt-3 text-3xl sm:text-4xl">Novidades, pratos e bons momentos.</h2>
-          </div>
-          <a
-            className="button button--light"
-            href={restaurant.instagram}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Icon name="instagram" size={18} />
-            @divinasalsa
-          </a>
+      <section className={styles.channels} aria-label="Instagram do restaurante">
+        <div className={`shell ${styles.channelGrid}`}>
+          <h2>Um pouco da casa, todos os dias.</h2>
+          <a className={styles.social} href={restaurant.instagram} target="_blank" rel="noreferrer"><Icon name="instagram" size={18} /> @divinasalsa <Icon name="arrow-right" size={16} /></a>
         </div>
       </section>
 
