@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { isSiteIndexable, siteUrl } from "@/lib/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -10,13 +11,27 @@ export const metadata: Metadata = {
   },
   description:
     "Gastronomia contemporânea, frutos do mar, carnes, massas e risotos no Passeio Pedra Branca, em Palhoça.",
-  metadataBase: new URL("https://divinasalsarestaurante.com.br"),
-  openGraph: {
-    title: "Divina Salsa Restaurante",
-    description:
-      "Uma experiência gastronômica no coração do Passeio Pedra Branca.",
-    locale: "pt_BR",
-    type: "website",
+  metadataBase: new URL(`${siteUrl}/`),
+  applicationName: "Divina Salsa Restaurante",
+  keywords: [
+    "Divina Salsa Restaurante",
+    "restaurante em Palhoça",
+    "restaurante Pedra Branca",
+    "frutos do mar",
+    "massas e risotos",
+    "eventos em Palhoça",
+  ],
+  category: "restaurante",
+  robots: {
+    index: isSiteIndexable,
+    follow: isSiteIndexable,
+    googleBot: {
+      index: isSiteIndexable,
+      follow: isSiteIndexable,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 };
 

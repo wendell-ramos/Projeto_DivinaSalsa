@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Divina Salsa">
+  <rect width="64" height="64" rx="12" fill="#2b3323"/>
+  <path d="M16 13h18c10.7 0 18 7.5 18 18.5S44.7 50 34 50H16V13Zm8 7v23h9.2C39.9 43 44 38.7 44 31.5S39.9 20 33.2 20H24Z" fill="#faf9f5"/>
+  <path d="M18 51h34" stroke="#b8c0a8" stroke-width="3"/>
+</svg>

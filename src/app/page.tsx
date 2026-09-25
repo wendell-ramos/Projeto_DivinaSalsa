@@ -1,23 +1,45 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { DeliveryCard, ReservationCard } from "@/components/delivery-card";
 import { Icon } from "@/components/icon";
-import { experiences, menuHighlights, restaurant } from "@/content/restaurant";
+import { menuHighlights, restaurant } from "@/content/restaurant";
+import { absoluteUrl, createPageMetadata } from "@/lib/site";
+import styles from "./home.module.css";
 
 const basePath = process.env.PAGES_BASE_PATH ?? "";
+
+export const metadata: Metadata = createPageMetadata({
+  title: "Divina Salsa Restaurante | Pedra Branca",
+  description:
+    "Almoço, jantar e bons momentos no Divina Salsa Restaurante, no Passeio Pedra Branca, em Palhoça. Conheça o cardápio, o espaço e os horários.",
+  path: "/",
+  absoluteTitle: true,
+});
 
 export default function Home() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Restaurant",
     name: restaurant.name,
+    description: restaurant.description,
+    url: absoluteUrl("/"),
+    image: absoluteUrl("/images/optimized/camarao-tropical.webp"),
+    menu: absoluteUrl("/cardapio/"),
     servesCuisine: ["Brasileira", "Frutos do mar", "Massas", "Contemporânea"],
-    telephone: restaurant.phone,
+    telephone: "+55 48 3283-0019",
     address: {
       "@type": "PostalAddress",
+      streetAddress: "Rua da Universidade, Av. Pedra Branca, 346",
       addressLocality: "Palhoça",
       addressRegion: "SC",
+      postalCode: "88137-074",
       addressCountry: "BR",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: -27.6226382,
+      longitude: -48.6779509,
     },
     openingHoursSpecification: [
       {
@@ -43,32 +65,37 @@ export default function Home() {
   };
 
   return (
-    <main>
+    <main id="conteudo" tabIndex={-1}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
-      <section id="inicio" className="hero min-h-[620px] text-white">
+      <section id="inicio" className={styles.hero} aria-label="Divina Salsa Restaurante">
         <Image
-          src={`${basePath}/images/camarao-tropical.jpg`}
+          src={`${basePath}/images/optimized/camarao-tropical.webp`}
           alt="Camarão Tropical servido pelo Divina Salsa"
           fill
           priority
-          sizes="100vw"
+          sizes="(max-width: 767px) 660px, 100vw"
           className="object-cover object-center"
         />
-        <div className="hero__overlay" />
+        <div className={styles.overlay} aria-hidden="true" />
         <div className="hero__botanical" aria-hidden="true" />
-
-        <div className="shell relative z-10 flex min-h-[620px] items-end pb-12 pt-32 md:pb-14">
-          <div className="grid w-full gap-10 lg:grid-cols-[1fr_260px] lg:items-end">
-            <div className="max-w-4xl">
-              <p className="eyebrow text-[var(--olive-100)]">Passeio Pedra Branca · Palhoça</p>
-              <h1 className="display-title mt-5 max-w-3xl">
-                Sabores que transformam encontros em celebrações.
+        <div className={`shell ${styles.heroContent}`}>
+          <div className={styles.brandGroup}>
+              <h1>
+                <Image
+                  src={`${basePath}/images/logo-divina-salsa.png`}
+                  unoptimized
+                  alt="Divina Salsa Restaurante"
+                  width={1239}
+                  height={689}
+                  className={styles.logo}
+                  preload
+                />
               </h1>
-              <div className="mt-8 flex flex-wrap gap-3">
+              <div className={styles.actions}>
                 <Link className="button button--cream" href="/cardapio">
                   Conheça o cardápio
                   <Icon name="arrow-right" size={17} />
@@ -83,98 +110,65 @@ export default function Home() {
                   <Icon name="map-pin" size={17} />
                 </a>
               </div>
-            </div>
-
-            <aside className="hero__info">
-              <span className="hero__info-icon">
-                <Icon name="clock" size={19} />
-              </span>
-              <p className="text-xs font-bold tracking-[0.18em] uppercase">Hoje no Divina</p>
-              <p className="mt-3 text-sm leading-6 text-white/75">
-                Almoço, jantar e bons momentos no coração da Pedra Branca.
-              </p>
-              <a className="mt-5 inline-flex items-center gap-2 text-sm font-bold" href="#visite">
-                Ver horários <Icon name="arrow-right" size={15} />
-              </a>
-            </aside>
           </div>
+          <aside className={styles.hours} aria-label="Horários do restaurante">
+            <span className={styles.hoursIcon} aria-hidden="true">
+              <Icon name="clock" size={19} />
+            </span>
+            <p className={styles.hoursTitle}>Hoje no Divina</p>
+            <p className={styles.hoursDescription}>
+              Almoço, jantar e bons momentos no coração da Pedra Branca.
+            </p>
+            <a className={styles.hoursLink} href="#visite">
+              Ver horários <Icon name="arrow-right" size={15} />
+            </a>
+          </aside>
         </div>
       </section>
 
-      <section id="a-casa" className="about-section section-pad overflow-hidden bg-[var(--cream)]">
-        <div className="about-layout shell grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
-          <div className="about-visual relative min-h-[420px] sm:min-h-[480px]">
-            <div className="about-photo absolute left-0 top-0 h-[88%] w-[78%] overflow-hidden rounded-[2px]">
-              <Image
-                src={`${basePath}/images/mignon-germanica.jpg`}
-                alt="Prato de mignon do Divina Salsa"
-                fill
-                sizes="(max-width: 1024px) 78vw, 34vw"
-                className="object-cover"
-              />
-            </div>
-            <div className="about-year-card absolute bottom-0 right-0 w-[56%] bg-[var(--sage)] p-6 text-white shadow-2xl sm:p-8">
-              <p className="serif text-4xl leading-none">Desde</p>
-              <p className="serif mt-1 text-6xl leading-none">2016</p>
-              <p className="mt-5 text-xs font-bold tracking-[0.18em] uppercase text-white/75">
-                Na Pedra Branca
-              </p>
-            </div>
-          </div>
-
-          <div className="about-copy lg:pl-10">
+      <section id="a-casa" className={styles.about} aria-labelledby="sobre-titulo">
+        <div className={`shell ${styles.aboutLayout}`}>
+          <div className={styles.copy}>
             <p className="eyebrow text-[var(--forest)]">Sobre o Divina Salsa</p>
-            <h2 className="section-title mt-5 text-[var(--ink)]">
-              Tradição e inovação servidas à mesma mesa.
+            <h2 id="sobre-titulo" className={styles.aboutTitle}>
+              Gastronomia especializada em frutos do mar, na Pedra Branca.
             </h2>
-            <p className="mt-6 max-w-2xl text-base leading-7 text-[var(--muted)]">
-              No coração do Passeio Pedra Branca, uma casa feita para reunir pessoas e transformar
-              refeições em boas lembranças.
+            <p className={styles.paragraph}>
+              No coração do Passeio Pedra Branca, o Divina se consolida há 10 anos como um
+              espaço acolhedor para você ter a melhor experiência no seu almoço e jantar.
             </p>
-            <div className="about-description-grid mt-6 grid gap-5 text-[0.95rem] leading-7 text-[var(--muted)] sm:grid-cols-2">
-              <p>
-                Ingredientes selecionados, receitas cuidadosas e pratos contemporâneos com a
-                tradição do sabor.
-              </p>
-              <p>
-                Um ambiente acolhedor para almoços, jantares, encontros e celebrações que merecem
-                ser lembradas.
-              </p>
-            </div>
-            <div className="about-features mt-9 flex flex-wrap items-center gap-7 border-t border-black/10 pt-7">
-              <div>
-                <strong className="serif block text-[1.7rem] text-[var(--forest)]">Da terra ao mar</strong>
-                <span className="text-sm text-[var(--muted)]">Carnes, pescados, massas e risotos</span>
-              </div>
-              <div>
-                <strong className="serif block text-[1.7rem] text-[var(--forest)]">Almoço e jantar</strong>
-                <span className="text-sm text-[var(--muted)]">Sabores para diferentes momentos</span>
-              </div>
-              <Link className="text-link" href="/cardapio">
+            <p className={styles.paragraph}>
+              Com ingredientes selecionados, oferecemos pratos contemporâneos, com carnes,
+              massas, risotos e, claro, a nossa especialidade: os frutos do mar.
+            </p>
+              <Link className={`text-link ${styles.aboutLink}`} href="/cardapio">
                 Explorar sabores <Icon name="arrow-right" size={16} />
               </Link>
-            </div>
           </div>
+          <Image
+            src={`${basePath}/images/optimized/bacalhau-gomes.webp`}
+            alt="Bacalhau Gomes de Sá do Divina Salsa, com ovos, azeitonas e pimentões"
+            width={1440}
+            height={960}
+            sizes="(max-width: 767px) 100vw, 50vw"
+            className={styles.aboutPhoto}
+          />
         </div>
       </section>
 
-      <section id="cardapio" className="section-pad bg-[var(--paper)]">
+      <section id="cardapio" className={`section-pad bg-[var(--paper)] ${styles.menuSection}`}>
         <div className="shell">
           <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
             <div className="max-w-2xl">
               <p className="eyebrow text-[var(--forest)]">Destaques da casa</p>
-              <h2 className="section-title mt-5">Um cardápio para cada momento.</h2>
+              <h2 className={styles.blockTitle}>Confira os mais pedidos.</h2>
             </div>
-            <p className="max-w-md text-base leading-7 text-[var(--muted)]">
-              Dos clássicos do mar às carnes, massas e opções executivas — encontre o prato certo
-              para compartilhar ou apreciar sozinho.
-            </p>
           </div>
 
-          <div className="mt-12 grid gap-4 md:grid-cols-3">
+          <div className={styles.highlights}>
             {menuHighlights.map((item, index) => (
-              <article className={`menu-card group ${index === 1 ? "md:translate-y-8" : ""}`} key={item.name}>
-                <div className="relative aspect-square overflow-hidden">
+              <article className={`menu-card group ${styles.highlightCard}`} key={item.name}>
+                <div className={styles.highlightPhoto}>
                   <Image
                     src={`${basePath}${item.image}`}
                     alt={item.name}
@@ -195,10 +189,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="mt-18 flex flex-col items-start justify-between gap-5 border-t border-black/10 pt-7 sm:flex-row sm:items-center">
-            <p className="text-sm text-[var(--muted)]">
-              Entradas · Saladas · Carnes · Pescados · Massas · Risotos · Kids · Sobremesas
-            </p>
+          <div className={styles.menuAction}>
             <Link className="button button--dark" href="/cardapio">
               Ver cardápio completo
               <Icon name="arrow-right" size={16} />
@@ -207,39 +198,22 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="experiencias" className="bg-[var(--forest)] text-white">
-        <div className="shell grid lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="relative min-h-[420px] overflow-hidden lg:min-h-[560px]">
+      <section id="experiencias" className={styles.experience} aria-labelledby="experiencia-titulo">
+        <div className={`shell ${styles.experienceLayout}`}>
+          <div className={styles.experiencePhoto}>
             <Image
-              src={`${basePath}/images/soda-italiana.jpg`}
-              alt="Soda italiana do Divina Salsa"
+              src={`${basePath}/images/optimized/ambiente-noturno-home.webp`}
+              alt="Ambiente interno do Divina Salsa à noite, com mesas preparadas e iluminação acolhedora"
               fill
               sizes="(max-width: 1024px) 100vw, 45vw"
               className="object-cover"
             />
-            <div className="experience-image-overlay absolute inset-0" />
-            <p className="absolute bottom-7 left-7 right-7 serif text-3xl leading-tight sm:left-9 sm:text-4xl">
-              Boa comida.<br />Boas conversas.<br />O lugar certo.
-            </p>
           </div>
 
-          <div className="flex flex-col justify-center py-12 lg:py-14 lg:pl-14">
-            <p className="eyebrow text-[var(--olive-300)]">Mais que uma refeição</p>
-            <h2 className="section-title experience-title mt-4 max-w-lg text-white">
-              Uma casa aberta para receber você.
+          <div className={styles.experienceCopy}>
+            <h2 id="experiencia-titulo">
+              Do dia a dia aos momentos mais especiais, o Divina é o lugar certo para você.
             </h2>
-            <div className="mt-8 divide-y divide-white/15 border-y border-white/15">
-              {experiences.map((item) => (
-                <article className="experience-row" key={item.number}>
-                  <span>{item.number}</span>
-                  <div>
-                    <h3 className="serif text-xl">{item.title}</h3>
-                    <p className="mt-1.5 max-w-md text-xs leading-5 text-white/65">{item.text}</p>
-                  </div>
-                  <Icon name="arrow-down-right" className="ml-auto shrink-0 text-[var(--olive-300)]" size={22} />
-                </article>
-              ))}
-            </div>
           </div>
         </div>
       </section>
@@ -248,8 +222,7 @@ export default function Home() {
         <div className="shell">
           <div className="grid overflow-hidden border border-black/10 bg-[var(--paper)] lg:grid-cols-[1.05fr_0.95fr]">
             <div className="visit-copy p-7 sm:p-10 lg:p-14">
-              <p className="eyebrow text-[var(--forest)]">Planeje sua visita</p>
-              <h2 className="section-title mt-5 max-w-xl">Sua mesa está esperando.</h2>
+              <h2 className={styles.visitTitle}>Sua mesa está esperando.</h2>
 
               <div className="visit-details mt-10 grid gap-9 sm:grid-cols-2">
                 <div>
@@ -289,7 +262,7 @@ export default function Home() {
 
             <div className="visit-photo relative min-h-[340px] sm:min-h-[400px]">
               <Image
-                src={`${basePath}/images/espaco-fachada.jpg`}
+                src={`${basePath}/images/optimized/fachada-diurna-home.webp`}
                 alt="Fachada do Divina Salsa Restaurante no Passeio Pedra Branca"
                 fill
                 sizes="(max-width: 1024px) 100vw, 45vw"
@@ -299,6 +272,7 @@ export default function Home() {
                 <div className="flex items-center gap-4">
                   <Image
                     src={`${basePath}/images/logo-divina-salsa.png`}
+                    unoptimized
                     alt="Marca oficial Divina Salsa Restaurante"
                     width={1239}
                     height={689}
@@ -311,32 +285,6 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="instagram-promo text-white">
-        <div className="shell instagram-promo__layout">
-          <div className="instagram-promo__content">
-            <p className="eyebrow text-white/70">Acompanhe o Divina</p>
-            <h2 className="serif mt-2 text-[2.15rem] leading-[1.05] sm:text-[2.35rem]">
-              Novidades, pratos e bons momentos.
-            </h2>
-          </div>
-
-          <div className="instagram-promo__action">
-            <p className="max-w-sm text-sm leading-6 text-white/65">
-              Pratos, novidades e momentos que fazem parte da rotina da casa.
-            </p>
-            <a
-              className="button button--cream mt-5"
-              href={restaurant.instagram}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Icon name="instagram" size={18} />
-              @divinasalsa
-            </a>
           </div>
         </div>
       </section>

@@ -5,7 +5,10 @@ const nextConfig: NextConfig = {
   basePath: process.env.PAGES_BASE_PATH ?? "",
   trailingSlash: true,
   images: {
-    unoptimized: true,
+    loader: "custom",
+    loaderFile: "./src/lib/image-loader.ts",
+    deviceSizes: [480, 800, 1200, 1920, 2560],
+    imageSizes: [],
   },
 };
 

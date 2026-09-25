@@ -1,30 +1,37 @@
 import type { Metadata } from "next";
-import { PageHero } from "@/components/page-hero";
+import Image from "next/image";
 import { menuCategories, menuSections } from "@/content/menu";
+import { menuHighlights } from "@/content/restaurant";
+import { createPageMetadata } from "@/lib/site";
+import styles from "./menu.module.css";
 
-export const metadata: Metadata = {
+const basePath = process.env.PAGES_BASE_PATH ?? "";
+
+export const metadata: Metadata = createPageMetadata({
   title: "Cardápio",
-  description: "Conheça o cardápio completo do Divina Salsa Restaurante.",
-};
+  description:
+    "Conheça o cardápio do Divina Salsa Restaurante: entradas, saladas, carnes, pescados, massas, risotos, opções infantis, sobremesas e bebidas.",
+  path: "/cardapio/",
+  image: "/images/optimized/risoto-camarao.webp",
+  imageAlt: "Risoto de camarão servido pelo Divina Salsa Restaurante",
+});
 
 export default function CardapioPage() {
   return (
-    <main>
-      <PageHero
-        eyebrow="Divina Salsa Restaurante"
-        title="Nosso cardápio."
-        description="Da primeira entrada ao último brinde, sabores preparados para todos os momentos."
-        image="/images/risoto-camarao.jpg"
-        imageAlt="Risoto de camarão do Divina Salsa servido à mesa"
-        imagePosition="object-[center_60%]"
-      />
+    <main id="conteudo" tabIndex={-1}>
+      <div className={styles.banner}>
+        <Image
+          src={`${basePath}/images/optimized/risoto-camarao.webp`}
+          alt="Risoto de camarão do Divina Salsa servido à mesa"
+          fill preload sizes="100vw" className={styles.bannerPhoto}
+        />
+      </div>
 
-      <section id="cardapio-completo" className="section-pad bg-[var(--paper)]">
+      <section id="cardapio-completo" className={styles.menuContent}>
         <div className="shell">
-          <div className="menu-intro">
+          <div className={styles.intro}>
             <div className="max-w-2xl">
-              <p className="eyebrow text-[var(--forest)]">Cardápio completo</p>
-              <h2 className="section-title mt-5">Escolha o seu momento à mesa.</h2>
+              <h1 className={styles.title}>Nosso cardápio</h1>
             </div>
             <div className="max-w-md">
               <p className="text-base leading-7 text-[var(--muted)]">
@@ -50,14 +57,14 @@ export default function CardapioPage() {
               <section className="menu-section" key={section.title} aria-labelledby={`menu-section-${sectionIndex}`}>
                 <div className="menu-section__heading">
                   <span>0{sectionIndex + 1}</span>
-                  <h3 id={`menu-section-${sectionIndex}`}>{section.title}</h3>
+                  <h2 id={`menu-section-${sectionIndex}`} className={styles.sectionTitle}>{section.title}</h2>
                 </div>
 
                 <div className="menu-category-grid">
                   {section.categories.map((category) => (
                     <article className="menu-category" id={category.id} key={category.id}>
                       <header>
-                        <h4>{category.title}</h4>
+                        <h3>{category.title}</h3>
                         {category.note && <p>{category.note}</p>}
                       </header>
 
@@ -65,7 +72,7 @@ export default function CardapioPage() {
                         {category.items.map((item) => (
                           <div className="menu-item" key={`${category.id}-${item.name}`}>
                             <div className="menu-item__line">
-                              <h5>{item.name}</h5>
+                              <h4>{item.name}</h4>
                               <span aria-hidden="true" />
                               <strong>{item.price}</strong>
                             </div>
@@ -80,6 +87,28 @@ export default function CardapioPage() {
             ))}
           </div>
 
+        </div>
+      </section>
+
+      <section className={styles.suggestions} aria-labelledby="sugestoes-titulo">
+        <div className="shell">
+          <p className="eyebrow text-[var(--sage-dark)]">Destaques da casa</p>
+          <h2 id="sugestoes-titulo" className={styles.suggestionsTitle}>Sugestões do chef</h2>
+          <div className={styles.cards}>
+            {menuHighlights.map(item => (
+              <article className={styles.card} key={item.name}>
+                <div className={styles.photo}>
+                  <Image src={`${basePath}${item.image}`} alt={item.name} fill
+                    sizes="(max-width: 639px) 100vw, (max-width: 1120px) 33vw, 340px" />
+                </div>
+                <div className={styles.cardCopy}>
+                  <p className={styles.category}>{item.category}</p>
+                  <h3>{item.name}</h3>
+                  <p className={styles.description}>{item.description}</p>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 

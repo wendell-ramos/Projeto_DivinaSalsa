@@ -1,0 +1,102 @@
+{
+  "ambiente-noturno-home": [
+    480,
+    800,
+    1200
+  ],
+  "bacalhau-gomes": [
+    480,
+    800,
+    1200,
+    1440
+  ],
+  "camarao-tropical": [
+    480,
+    800,
+    1200,
+    1920
+  ],
+  "contato-varanda-diurna": [
+    480,
+    800,
+    1200,
+    1920,
+    2560
+  ],
+  "eventos-celebracao": [
+    480,
+    800,
+    1200
+  ],
+  "eventos-confraternizacao": [
+    480,
+    800,
+    1200
+  ],
+  "eventos-mesa": [
+    480,
+    800,
+    1200
+  ],
+  "fachada-diurna-home": [
+    480,
+    800,
+    1200
+  ],
+  "galeria-espaco-047": [
+    480,
+    800,
+    1200
+  ],
+  "galeria-espaco-049": [
+    480,
+    800,
+    1200
+  ],
+  "galeria-espaco-052": [
+    480,
+    800,
+    1200
+  ],
+  "galeria-espaco-058": [
+    480,
+    800,
+    1200
+  ],
+  "galeria-espaco-061": [
+    480,
+    800,
+    1200
+  ],
+  "galeria-eventos-018": [
+    480,
+    800,
+    1200
+  ],
+  "galeria-eventos-032": [
+    480,
+    800,
+    1200
+  ],
+  "galeria-eventos-055": [
+    480,
+    800,
+    1200
+  ],
+  "galeria-eventos-057": [
+    480,
+    800,
+    1200
+  ],
+  "polvo-pedra-branca": [
+    480,
+    800,
+    900
+  ],
+  "risoto-camarao": [
+    480,
+    800,
+    1200,
+    1920
+  ]
+}

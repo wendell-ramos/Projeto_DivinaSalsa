@@ -1,18 +1,39 @@
 "use client";
 
 import Link from "next/link";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import { Icon } from "@/components/icon";
 import { Wordmark } from "@/components/wordmark";
 import { siteNavigation } from "@/content/navigation";
 import { restaurant } from "@/content/restaurant";
 
 export function SiteHeader() {
+  const pathname = usePathname().replace(/\/$/, "") || "/";
   const mobileMenuRef = useRef<HTMLDetailsElement>(null);
   const closeMobileMenu = () => mobileMenuRef.current?.removeAttribute("open");
 
+  useEffect(() => {
+    const onPointerDown = (event: PointerEvent) => {
+      if (event.target instanceof Node && !mobileMenuRef.current?.contains(event.target)) closeMobileMenu();
+    };
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape" && mobileMenuRef.current?.open) {
+        closeMobileMenu();
+        mobileMenuRef.current.querySelector("summary")?.focus();
+      }
+    };
+    document.addEventListener("pointerdown", onPointerDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, []);
+
   return (
     <header className="site-header absolute inset-x-0 top-0 z-30 border-b border-white/15 text-white">
+      <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
       <div className="shell flex h-[86px] items-center justify-between gap-7">
         <Link href="/" aria-label="Ir para o início">
           <Wordmark compact light />
@@ -20,7 +41,7 @@ export function SiteHeader() {
 
         <nav className="hidden items-center gap-7 text-[0.66rem] font-bold tracking-[0.18em] uppercase lg:flex">
           {siteNavigation.map((item) => (
-            <Link className="nav-link" href={item.href} key={item.href}>
+            <Link className="nav-link" href={item.href} key={item.href} aria-current={pathname === item.href ? "page" : undefined}>
               {item.label}
             </Link>
           ))}
@@ -42,7 +63,7 @@ export function SiteHeader() {
           </summary>
           <nav>
             {siteNavigation.map((item) => (
-              <Link href={item.href} key={item.href} onClick={closeMobileMenu}>
+              <Link href={item.href} key={item.href} onClick={closeMobileMenu} aria-current={pathname === item.href ? "page" : undefined}>
                 {item.label}
               </Link>
             ))}

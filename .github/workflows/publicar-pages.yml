@@ -40,6 +40,8 @@ jobs:
         run: npm run build
         env:
           PAGES_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+          SITE_URL: ${{ steps.pages.outputs.base_url }}
+          SITE_INDEXABLE: "true"
 
       - name: Preparar arquivos
         uses: actions/upload-pages-artifact@v4
