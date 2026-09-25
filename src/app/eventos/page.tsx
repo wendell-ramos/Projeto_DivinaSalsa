@@ -17,12 +17,9 @@ export const metadata: Metadata = createPageMetadata({
 });
 
 const photos = [
-  { image: "eventos-confraternizacao", alt: "Convidados reunidos nas mesas do Divina Salsa durante uma confraternização", caption: "Encontros na casa", position: "center 72%" },
-  { image: "eventos-celebracao", alt: "Mesa decorada com bolo, doces e balões para uma celebração no restaurante", caption: "Momentos para celebrar", position: "center 78%" },
-  { image: "eventos-mesa", alt: "Convidados se servindo em uma mesa de pratos e flores durante um evento", caption: "Sabores para compartilhar", position: "center 55%" },
-  { image: "galeria-eventos-032", alt: "Mesa com taças e toalha clara preparada para um encontro no Divina Salsa", position: "center 70%" },
-  { image: "galeria-eventos-057", alt: "Pratos, taças e talheres organizados para receber os convidados", position: "center 72%" },
-  { image: "galeria-eventos-055", alt: "Salão preparado para um evento com mesas redondas e toalhas azuis", position: "center 65%" },
+  { image: "eventos-celebracao", alt: "Mesa decorada com bolo, doces, flores e balões para uma celebração no restaurante", position: "center 72%" },
+  { image: "eventos-mesa", alt: "Convidados reunidos em torno de uma mesa de buffet decorada com flores", position: "center 52%" },
+  { image: "galeria-eventos-032", alt: "Mesa com taças e toalha clara preparada para um encontro no Divina Salsa", position: "center 72%" },
 ];
 
 export default function EventosPage() {

@@ -7,7 +7,7 @@
 .copy p + p { margin-top: 16px; }
 .gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 30px; }
 .gallery figure { margin: 0; min-width: 0; }
-.photo { position: relative; aspect-ratio: 3 / 2; overflow: hidden; background: var(--cream); }
+.photo { position: relative; aspect-ratio: 1; overflow: hidden; background: var(--cream); }
 .photo img { object-fit: cover; }
 .contact { padding-bottom: 30px; color: var(--forest); }
 .contactGrid { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-top: 24px; border-top: 1px solid rgb(var(--olive-900-rgb) / 16%); }
@@ -17,7 +17,7 @@
 .contactActions p { font-size: .65rem; color: var(--muted); }
 .contact a:focus-visible { outline: 2px solid var(--sage); outline-offset: 5px; }
 @media (max-width: 900px) {
-  .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .gallery { gap: 12px; }
 }
 @media (max-width: 599px) {
   .content { padding-block: 28px; }
@@ -25,6 +25,7 @@
   .copy { line-height: 1.75; }
   .copy p + p { margin-top: 14px; }
   .gallery { grid-template-columns: 1fr; gap: 12px; margin-top: 24px; }
+  .photo { aspect-ratio: 4 / 3; }
   .contactGrid { flex-direction: column; align-items: flex-start; gap: 18px; }
   .contactActions { align-items: flex-start; max-width: 100%; }
   .contactActions a { width: 100%; }

@@ -25,8 +25,13 @@
   .intro h1 { margin-bottom: 18px; }
   .copy { font-size: .875rem; line-height: 1.75; }
   .copy p + p { margin-top: 14px; }
-  .hours { margin-top: 24px; padding-block: 18px; gap: 14px; text-align: center; }
-  .hours dl { flex-direction: column; gap: 12px; }
-  .hours dl > div { padding: 0; border: 0; }
+  .hours { align-items: stretch; margin-top: 24px; padding-block: 16px; gap: 14px; text-align: left; }
+  .hours h2 { justify-content: center; }
+  .hours dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; width: 100%; }
+  .hours dl > div { min-width: 0; padding: 0 12px; border: 0; text-align: center; }
+  .hours dl > div:first-child { padding-left: 12px; }
+  .hours dl > div + div { border-left: 1px solid rgb(var(--olive-900-rgb) / 14%); }
+  .hours dt { line-height: 1.4; }
+  .hours dd { margin-top: 4px; line-height: 1.45; }
   .gallery { grid-template-columns: 1fr; margin-top: 24px; gap: 12px; }
 }
