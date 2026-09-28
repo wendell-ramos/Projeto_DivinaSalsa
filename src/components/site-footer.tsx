@@ -32,8 +32,15 @@ export function SiteFooter() {
               <Icon name="instagram" size={20} />
             </a>
           </div>
-          <div className="flex flex-col justify-between gap-3 border-t border-white/10 pt-5 text-[0.68rem] text-white/45 sm:flex-row sm:items-center sm:pr-40">
+          <div className="site-footer__bottom border-t border-white/10 pt-5 text-[0.68rem] text-white/45">
             <p>© {new Date().getFullYear()} Divina Salsa Restaurante.</p>
+            <p className="site-footer__credit">
+              Desenvolvido por{" "}
+              <a href="https://wendell-ramos.github.io/portfolio-wendell-ramos/" target="_blank" rel="noopener noreferrer">
+                Wendell Ramos
+                <Icon name="arrow-down-right" size={13} />
+              </a>
+            </p>
           </div>
         </div>
       </footer>
@@ -45,7 +52,7 @@ export function SiteFooter() {
         rel="noreferrer"
         aria-label="Falar com o Divina Salsa pelo WhatsApp"
       >
-        <Icon name="message" size={22} />
+        <Icon name="whatsapp" size={22} />
         <span>WhatsApp</span>
       </a>
     </>

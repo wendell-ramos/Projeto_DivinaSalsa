@@ -61,7 +61,7 @@ export default function EventosPage() {
           <h2 id="eventos-contato">Conte a sua ideia.<br /><em>Vamos conversar.</em></h2>
           <div className={styles.contactActions}>
             <a href={eventContact} target="_blank" rel="noopener noreferrer" className="button button--dark">
-              <Icon name="message" size={17} /> Consultar pelo WhatsApp
+              <Icon name="whatsapp" size={17} /> Consultar pelo WhatsApp
             </a>
             <p>Disponibilidade e condições sob consulta.</p>
           </div>
