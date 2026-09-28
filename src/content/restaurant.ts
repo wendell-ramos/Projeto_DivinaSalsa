@@ -15,7 +15,7 @@ export const restaurant = {
   mapsEmbed:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3535.060650115729!2d-48.6779509!3d-27.622638199999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x952735821c3e9d5b%3A0xb920859c4e8ce484!2sDivina%20Salsa%20Restaurante!5e0!3m2!1spt-BR!2sbr!4v1789661235807!5m2!1spt-BR!2sbr",
   ifood:
-    "https://www.ifood.com.br/delivery/palhoca-sc/divina-salsa-restaurante-pedra-branca/",
+    "https://www.ifood.com.br/delivery/palhoca-sc/divina-salsa-restaurante-pedra-branca/a98ac1e8-b1f5-4374-bf46-d5d95de6e611?utm_medium=share",
   hours: [
     { days: "Domingo e segunda", time: "11h30 às 15h" },
     { days: "Terça a sábado", time: "11h30 às 15h · 18h às 20h30" },
