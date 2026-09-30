@@ -22,11 +22,6 @@ export const restaurant = {
   ],
 } as const;
 
-export const pendingRestaurantContent = [
-  "Slogans oficiais",
-  "Texto institucional sobre a história da casa",
-] as const;
-
 export const menuHighlights = [
   {
     name: "Camarão Tropical",
@@ -48,23 +43,5 @@ export const menuHighlights = [
     description:
       "Arroz arbóreo cremoso, camarões e o equilíbrio dos sabores da casa.",
     image: "/images/optimized/risoto-camarao.webp",
-  },
-] as const;
-
-export const experiences = [
-  {
-    number: "01",
-    title: "Almoço com sabor",
-    text: "Executivos, opções leves e pratos individuais para transformar a pausa do dia.",
-  },
-  {
-    number: "02",
-    title: "Encontros à mesa",
-    text: "Pratos para compartilhar, carta de bebidas e um ambiente feito para ficar.",
-  },
-  {
-    number: "03",
-    title: "Momentos especiais",
-    text: "Jantares, celebrações e experiências no coração do Passeio Pedra Branca.",
   },
 ] as const;

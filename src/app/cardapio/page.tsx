@@ -95,10 +95,11 @@ export default function CardapioPage() {
           <p className="eyebrow text-[var(--sage-dark)]">Destaques da casa</p>
           <h2 id="sugestoes-titulo" className={styles.suggestionsTitle}>Sugestões do chef</h2>
           <div className={styles.cards}>
-            {menuHighlights.map(item => (
+            {menuHighlights.map((item, index) => (
               <article className={styles.card} key={item.name}>
                 <div className={styles.photo}>
                   <Image src={`${basePath}${item.image}`} alt={item.name} fill
+                    loading={index === 0 ? "eager" : "lazy"}
                     sizes="(max-width: 639px) 100vw, (max-width: 1120px) 33vw, 340px" />
                 </div>
                 <div className={styles.cardCopy}>

@@ -6,10 +6,8 @@ type IconName =
   | "instagram"
   | "map-pin"
   | "menu"
-  | "message"
   | "whatsapp"
-  | "ifood"
-  | "utensils";
+  | "ifood";
 
 type IconProps = {
   name: IconName;
@@ -49,13 +47,6 @@ const paths: Record<IconName, React.ReactNode> = {
     </>
   ),
   menu: <path d="M4 7h16M4 12h16M4 17h16" />,
-  message: <path d="M20 11.5a7.5 7.5 0 0 1-8 7.5 8.5 8.5 0 0 1-3-.6L4 20l1.6-4.2A7.5 7.5 0 1 1 20 11.5Z" />,
-  utensils: (
-    <>
-      <path d="m7 3 10 18M5 3v6a3 3 0 0 0 6 0V3M8 3v7" />
-      <path d="M17 3v8m0 0c2 0 3-2 3-4V3m-3 8v10" />
-    </>
-  ),
 };
 
 export function Icon({ name, size = 20, className }: IconProps) {

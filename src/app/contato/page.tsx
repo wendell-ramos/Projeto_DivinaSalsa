@@ -21,7 +21,7 @@ export default function ContatoPage() {
   return (
     <main id="conteudo" tabIndex={-1} className={styles.page}>
       <div className={styles.hero}>
-        <Image src={`${basePath}/images/optimized/contato-varanda-diurna.webp`} alt="Varanda do Divina Salsa durante o dia, com mesas e ombrelones" fill priority sizes="100vw" />
+        <Image src={`${basePath}/images/optimized/contato-varanda-diurna.webp`} alt="Varanda do Divina Salsa durante o dia, com mesas e ombrelones" fill preload sizes="100vw" />
       </div>
 
       <section className={`${styles.visit} bg-[var(--cream)]`}>

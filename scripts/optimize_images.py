@@ -26,6 +26,7 @@ def main():
     OUTPUT.mkdir(parents=True, exist_ok=True)
     manifest = {}
     report = []
+    generated = set()
     for name in sorted(names):
         original = SOURCE / f"{name}.webp"
         with Image.open(original) as opened:
@@ -36,14 +37,18 @@ def main():
                 height = round(image.height * width / image.width)
                 resized = image.resize((width, height), Image.Resampling.LANCZOS)
                 target = OUTPUT / f"{name}-{width}.webp"
-                resized.save(target, "WEBP", quality=85, method=6)
+                resized.save(target, "WEBP", quality=80, method=6)
                 if width == image.width and target.stat().st_size >= original.stat().st_size:
                     shutil.copyfile(original, target)
+                generated.add(target.name)
                 variants.append(width)
                 sizes[width] = target.stat().st_size
             manifest[name] = variants
             report.append({"image": name, "originalBytes": original.stat().st_size,
                            "variantsBytes": sizes})
+    for stale in OUTPUT.glob("*.webp"):
+        if stale.name not in generated:
+            stale.unlink()
     (ROOT / "src/lib/image-variants.json").write_text(
         json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(report, indent=2))

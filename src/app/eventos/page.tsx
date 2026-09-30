@@ -46,7 +46,7 @@ export default function EventosPage() {
                   src={`${basePath}/images/optimized/${photo.image}.webp`}
                   alt={photo.alt}
                   fill
-                  priority={index === 0}
+                  loading={index === 0 ? "eager" : "lazy"}
                   sizes="(max-width: 599px) 94vw, (max-width: 900px) 46vw, 350px"
                   style={{ objectPosition: photo.position }}
                 />
@@ -60,10 +60,10 @@ export default function EventosPage() {
         <div className={`shell ${styles.contactGrid}`}>
           <h2 id="eventos-contato">Conte a sua ideia.<br /><em>Vamos conversar.</em></h2>
           <div className={styles.contactActions}>
-            <a href={eventContact} target="_blank" rel="noopener noreferrer" className="button button--dark">
+            <a href={eventContact} target="_blank" rel="noopener noreferrer" className="button button--dark" aria-describedby="eventos-condicoes">
               <Icon name="whatsapp" size={17} /> Consultar pelo WhatsApp
             </a>
-            <p>Disponibilidade e condições sob consulta.</p>
+            <p id="eventos-condicoes">Disponibilidade e condições sob consulta.</p>
           </div>
         </div>
       </section>

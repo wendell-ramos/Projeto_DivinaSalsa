@@ -76,8 +76,9 @@ export default function Home() {
           src={`${basePath}/images/optimized/camarao-tropical.webp`}
           alt="Camarão Tropical servido pelo Divina Salsa"
           fill
-          priority
-          sizes="(max-width: 767px) 660px, 100vw"
+          fetchPriority="high"
+          loading="eager"
+          sizes="100vw"
           className="object-cover object-center"
         />
         <div className={styles.overlay} aria-hidden="true" />
@@ -85,18 +86,19 @@ export default function Home() {
         <div className={`shell ${styles.heroContent}`}>
           <div className={styles.brandGroup}>
               <h1>
+                <span className="sr-only">Divina Salsa Restaurante</span>
                 <Image
                   src={`${basePath}/images/logo-divina-salsa.png`}
                   unoptimized
-                  alt="Divina Salsa Restaurante"
+                  alt=""
                   width={1239}
                   height={689}
                   className={styles.logo}
-                  preload
+                  loading="eager"
                 />
               </h1>
               <div className={styles.actions}>
-                <Link className="button button--cream" href="/cardapio">
+                <Link className="button button--cream" href="/cardapio" prefetch={false}>
                   Conheça o cardápio
                   <Icon name="arrow-right" size={17} />
                 </Link>
@@ -141,7 +143,7 @@ export default function Home() {
               Com ingredientes selecionados, oferecemos pratos contemporâneos, com carnes,
               massas, risotos e, claro, a nossa especialidade: os frutos do mar.
             </p>
-              <Link className={`text-link ${styles.aboutLink}`} href="/cardapio">
+              <Link className={`text-link ${styles.aboutLink}`} href="/cardapio" prefetch={false}>
                 Explorar sabores <Icon name="arrow-right" size={16} />
               </Link>
           </div>
@@ -190,7 +192,7 @@ export default function Home() {
           </div>
 
           <div className={styles.menuAction}>
-            <Link className="button button--dark" href="/cardapio">
+            <Link className="button button--dark" href="/cardapio" prefetch={false}>
               Ver cardápio completo
               <Icon name="arrow-right" size={16} />
             </Link>

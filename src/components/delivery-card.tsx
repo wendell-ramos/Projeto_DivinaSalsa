@@ -8,7 +8,6 @@ export function ReservationCard() {
       href={restaurant.reservation}
       target="_blank"
       rel="noreferrer"
-      aria-label="Reservar mesa pelo WhatsApp"
     >
       <span className="channel-card__brand">
         <Icon name="whatsapp" size={16} />
@@ -27,9 +26,8 @@ export function DeliveryCard() {
       href={restaurant.ifood}
       target="_blank"
       rel="noreferrer"
-      aria-label="Fazer pedido no iFood"
     >
-      <span className="channel-card__brand" aria-hidden="true"><Icon name="ifood" size={16} />iFood</span>
+      <span className="channel-card__brand"><Icon name="ifood" size={16} />iFood</span>
       <span>Fazer pedido</span>
       <Icon name="arrow-down-right" size={17} />
     </a>

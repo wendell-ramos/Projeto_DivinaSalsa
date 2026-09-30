@@ -14,6 +14,8 @@ export function SiteHeader() {
   const closeMobileMenu = () => mobileMenuRef.current?.removeAttribute("open");
 
   useEffect(() => {
+    closeMobileMenu();
+
     const onPointerDown = (event: PointerEvent) => {
       if (event.target instanceof Node && !mobileMenuRef.current?.contains(event.target)) closeMobileMenu();
     };
@@ -29,19 +31,19 @@ export function SiteHeader() {
       document.removeEventListener("pointerdown", onPointerDown);
       document.removeEventListener("keydown", onKeyDown);
     };
-  }, []);
+  }, [pathname]);
 
   return (
     <header className="site-header absolute inset-x-0 top-0 z-30 border-b border-white/15 text-white">
       <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
       <div className="shell flex h-[86px] items-center justify-between gap-7">
-        <Link href="/" aria-label="Ir para o início">
+        <Link href="/" prefetch={false}>
           <Wordmark compact light />
         </Link>
 
-        <nav className="hidden items-center gap-7 text-[0.66rem] font-bold tracking-[0.18em] uppercase lg:flex">
+        <nav className="hidden items-center gap-7 text-[0.66rem] font-bold tracking-[0.18em] uppercase lg:flex" aria-label="Navegação principal">
           {siteNavigation.map((item) => (
-            <Link className="nav-link" href={item.href} key={item.href} aria-current={pathname === item.href ? "page" : undefined}>
+            <Link className="nav-link" href={item.href} key={item.href} prefetch={false} aria-current={pathname === item.href ? "page" : undefined}>
               {item.label}
             </Link>
           ))}
@@ -57,13 +59,13 @@ export function SiteHeader() {
           <Icon name="arrow-down-right" size={17} />
         </a>
 
-        <details className="mobile-menu lg:hidden" ref={mobileMenuRef}>
-          <summary aria-label="Abrir menu">
+        <details className="mobile-menu lg:hidden" ref={mobileMenuRef} suppressHydrationWarning>
+          <summary aria-label="Menu principal">
             <Icon name="menu" size={24} />
           </summary>
-          <nav>
+          <nav aria-label="Navegação principal móvel">
             {siteNavigation.map((item) => (
-              <Link href={item.href} key={item.href} onClick={closeMobileMenu} aria-current={pathname === item.href ? "page" : undefined}>
+              <Link href={item.href} key={item.href} prefetch={false} onClick={closeMobileMenu} aria-current={pathname === item.href ? "page" : undefined}>
                 {item.label}
               </Link>
             ))}

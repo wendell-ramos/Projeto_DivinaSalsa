@@ -36,6 +36,16 @@ export default function EspacoPage() {
 
           </div>
         </section>
+        <section className={styles.gallery} aria-label="Fotos dos ambientes do Divina Salsa">
+          {photos.map((photo, index) => (
+            <div className={styles.photo} key={photo.file}>
+              <Image src={`${basePath}/images/optimized/${photo.file}.webp`} alt={photo.alt}
+                fill sizes="(max-width: 599px) 94vw, (max-width: 900px) 46vw, 350px"
+                loading={index === 0 ? "eager" : "lazy"}
+                style={{ objectPosition: photo.position }} />
+            </div>
+          ))}
+        </section>
         <section className={styles.hours} aria-labelledby="espaco-horarios">
           <h2 id="espaco-horarios"><Icon name="clock" size={18} /> Horários da casa</h2>
           <dl>
@@ -46,15 +56,6 @@ export default function EspacoPage() {
               </div>
             ))}
           </dl>
-        </section>
-        <section className={styles.gallery} aria-label="Fotos dos ambientes do Divina Salsa">
-          {photos.map((photo, index) => (
-            <div className={styles.photo} key={photo.file}>
-              <Image src={`${basePath}/images/optimized/${photo.file}.webp`} alt={photo.alt}
-                fill sizes="(max-width: 599px) 94vw, (max-width: 900px) 46vw, 350px"
-                loading={index < 3 ? "eager" : "lazy"} style={{ objectPosition: photo.position }} />
-            </div>
-          ))}
         </section>
       </div>
     </main>

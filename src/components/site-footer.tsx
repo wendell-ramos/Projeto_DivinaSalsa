@@ -16,7 +16,7 @@ export function SiteFooter() {
               aria-label="Navegação do rodapé"
             >
               {siteNavigation.map((item) => (
-                <Link className="hover:text-white" href={item.href} key={item.href}>
+                <Link className="hover:text-white" href={item.href} key={item.href} prefetch={false}>
                   {item.label}
                 </Link>
               ))}
@@ -32,7 +32,7 @@ export function SiteFooter() {
               <Icon name="instagram" size={20} />
             </a>
           </div>
-          <div className="site-footer__bottom border-t border-white/10 pt-5 text-[0.68rem] text-white/45">
+          <div className="site-footer__bottom border-t border-white/10 pt-5 text-[0.68rem] text-white/60">
             <p>© {new Date().getFullYear()} Divina Salsa Restaurante.</p>
             <p className="site-footer__credit">
               Desenvolvido por{" "}

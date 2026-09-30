@@ -89,7 +89,7 @@ a:focus-visible {
   gap: 12px;
 }
 
-.site-footer__credit { color: rgb(255 255 255 / 38%); text-align: center; }
+.site-footer__credit { color: rgb(255 255 255 / 60%); text-align: center; }
 .site-footer__credit a {
   display: inline-flex;
   align-items: center;
@@ -219,7 +219,7 @@ a:focus-visible {
 }
 
 .channel-card--whatsapp {
-  background: #1f8f4d;
+  background: #18723d;
   box-shadow: 0 8px 20px rgb(15 81 43 / 0.15);
 }
 
@@ -229,7 +229,7 @@ a:focus-visible {
 }
 
 .channel-card--whatsapp:hover {
-  background: #18723d;
+  background: #125a30;
   box-shadow: 0 16px 34px rgb(15 81 43 / 0.2);
   transform: translateY(-2px);
 }
@@ -1128,7 +1128,7 @@ a:focus-visible {
   gap: 0.6rem;
   padding: 0.7rem 0.9rem;
   border-radius: 999px;
-  background: #1f8f4d;
+  background: #18723d;
   box-shadow: 0 14px 35px rgb(0 0 0 / 0.2);
   color: white;
   font-size: 0.66rem;
