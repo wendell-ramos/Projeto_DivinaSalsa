@@ -7,7 +7,7 @@ export function ReservationCard() {
       className="channel-card channel-card--whatsapp"
       href={restaurant.reservation}
       target="_blank"
-      rel="noreferrer"
+      rel="noopener noreferrer"
     >
       <span className="channel-card__brand">
         <Icon name="whatsapp" size={16} />
@@ -25,7 +25,7 @@ export function DeliveryCard() {
       className="channel-card channel-card--ifood"
       href={restaurant.ifood}
       target="_blank"
-      rel="noreferrer"
+      rel="noopener noreferrer"
     >
       <span className="channel-card__brand"><Icon name="ifood" size={16} />iFood</span>
       <span>Fazer pedido</span>

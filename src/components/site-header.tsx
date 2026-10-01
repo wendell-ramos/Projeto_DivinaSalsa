@@ -53,7 +53,7 @@ export function SiteHeader() {
           className="button button--light header-reserve"
           href={restaurant.reservation}
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
         >
           Reservar
           <Icon name="arrow-down-right" size={17} />
@@ -69,7 +69,7 @@ export function SiteHeader() {
                 {item.label}
               </Link>
             ))}
-            <a href={restaurant.reservation} target="_blank" rel="noreferrer" onClick={closeMobileMenu}>
+            <a href={restaurant.reservation} target="_blank" rel="noopener noreferrer" onClick={closeMobileMenu}>
               Reservar
             </a>
           </nav>

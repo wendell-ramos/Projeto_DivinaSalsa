@@ -37,7 +37,7 @@ O projeto apresenta o restaurante, seus ambientes, cardápio e eventos, além de
 Requer Node.js 22 ou uma versão compatível com o projeto.
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
@@ -46,11 +46,21 @@ O site ficará disponível em [http://localhost:3000](http://localhost:3000).
 ## Verificações
 
 ```bash
-npm run lint
-npm run build
+npm run check
+npm run security:audit
 ```
 
 O comando de build gera o site estático na pasta `out`.
+
+## Segurança
+
+- Cabeçalhos de proteção são publicados pelo Cloudflare Pages por meio de `public/_headers`.
+- Arquivos `.env` reais são ignorados; `.env.example` documenta somente valores não confidenciais.
+- O workflow executa auditoria de dependências, lint e build antes da publicação.
+- Dependabot acompanha atualizações do npm e das GitHub Actions.
+- As regras do futuro painel, banco e resposta a incidentes estão em [docs/SEGURANCA.md](docs/SEGURANCA.md).
+
+Falhas devem ser comunicadas de forma privada conforme [SECURITY.md](SECURITY.md).
 
 ## Imagens
 

@@ -25,7 +25,7 @@ export function SiteFooter() {
               className="absolute right-0 top-0 inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-white/25 transition-colors hover:bg-white/10 md:static"
               href={restaurant.instagram}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               aria-label="Instagram do Divina Salsa (abre em nova aba)"
               title="@divinasalsa"
             >
@@ -49,7 +49,7 @@ export function SiteFooter() {
         className="whatsapp-float"
         href={restaurant.whatsapp}
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
         aria-label="Falar com o Divina Salsa pelo WhatsApp"
       >
         <Icon name="whatsapp" size={22} />

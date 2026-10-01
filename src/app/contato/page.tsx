@@ -54,7 +54,7 @@ export default function ContatoPage() {
                     className="map-link mt-5"
                     href={restaurant.maps}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                   >
                     Abrir no mapa <Icon name="external" size={15} />
                   </a>

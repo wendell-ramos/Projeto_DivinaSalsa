@@ -4,6 +4,7 @@ import Link from "next/link";
 import { DeliveryCard, ReservationCard } from "@/components/delivery-card";
 import { Icon } from "@/components/icon";
 import { menuHighlights, restaurant } from "@/content/restaurant";
+import { serializeJsonLd } from "@/lib/security";
 import { absoluteUrl, createPageMetadata } from "@/lib/site";
 import styles from "./home.module.css";
 
@@ -68,7 +69,7 @@ export default function Home() {
     <main id="conteudo" tabIndex={-1}>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }}
       />
 
       <section id="inicio" className={styles.hero} aria-label="Divina Salsa Restaurante">
@@ -106,7 +107,7 @@ export default function Home() {
                   className="button button--ghost"
                   href={restaurant.maps}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   Como chegar
                   <Icon name="map-pin" size={17} />
@@ -249,7 +250,7 @@ export default function Home() {
                     className="map-link mt-5"
                     href={restaurant.maps}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                   >
                     Abrir no mapa <Icon name="external" size={15} />
                   </a>

@@ -8,20 +8,24 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pages: read
 
     steps:
       - name: Baixar repositório
         uses: actions/checkout@v6
+        with:
+          persist-credentials: false
 
       - name: Configurar Node.js
         uses: actions/setup-node@v4
@@ -31,6 +35,12 @@ jobs:
 
       - name: Instalar dependências
         run: npm ci
+
+      - name: Auditar dependências
+        run: npm audit --audit-level=high
+
+      - name: Verificar código
+        run: npm run lint
 
       - name: Configurar GitHub Pages
         id: pages
@@ -54,7 +64,12 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     needs: build
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
 
     steps:
       - name: Publicar site
