@@ -10,7 +10,9 @@ export function SiteFooter() {
       <footer className="site-footer py-8 text-white">
         <div className="site-footer__content shell flex flex-col gap-6">
           <div className="site-footer__main relative flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
-            <Wordmark compact light />
+            <Link href="/" prefetch={false} aria-label="Voltar à página inicial">
+              <Wordmark compact light />
+            </Link>
             <nav
               className="site-footer__nav flex flex-wrap gap-x-6 gap-y-3 text-[0.68rem] font-bold tracking-[0.16em] uppercase text-white/65"
               aria-label="Navegação do rodapé"

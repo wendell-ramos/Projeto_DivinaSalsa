@@ -6,7 +6,6 @@ import { createPageMetadata } from "@/lib/site";
 import styles from "./events.module.css";
 
 const basePath = process.env.PAGES_BASE_PATH ?? "";
-const eventContact = `${restaurant.whatsapp}?text=${encodeURIComponent("Olá! Gostaria de conversar sobre um evento no Divina Salsa. Posso enviar a data, o horário e a estimativa de convidados?")}`;
 
 export const metadata: Metadata = createPageMetadata({
   title: "Eventos",
@@ -60,7 +59,7 @@ export default function EventosPage() {
         <div className={`shell ${styles.contactGrid}`}>
           <h2 id="eventos-contato">Conte a sua ideia.<br /><em>Vamos conversar.</em></h2>
           <div className={styles.contactActions}>
-            <a href={eventContact} target="_blank" rel="noopener noreferrer" className="button button--dark" aria-describedby="eventos-condicoes">
+            <a href={restaurant.eventContact} target="_blank" rel="noopener noreferrer" className="button button--dark" aria-describedby="eventos-condicoes">
               <Icon name="whatsapp" size={17} /> Consultar pelo WhatsApp
             </a>
             <p id="eventos-condicoes">Disponibilidade e condições sob consulta.</p>

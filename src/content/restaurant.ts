@@ -1,3 +1,9 @@
+const whatsappBase = "https://wa.me/554832830019";
+
+function whatsappLink(message: string) {
+  return `${whatsappBase}?text=${encodeURIComponent(message)}`;
+}
+
 export const restaurant = {
   name: "Divina Salsa Restaurante",
   shortName: "Divina Salsa",
@@ -7,8 +13,13 @@ export const restaurant = {
   address: "Rua da Universidade, Av. Pedra Branca, 346, Palhoça - SC, 88137-074",
   phone: "(48) 3283.0019",
   phoneHref: "tel:+554832830019",
-  whatsapp: "https://wa.me/554832830019",
-  reservation: "https://wa.me/554832830019",
+  whatsapp: whatsappLink("Olá! Gostaria de mais informações sobre o Divina Salsa."),
+  reservation: whatsappLink(
+    "Olá! Gostaria de fazer uma reserva no Divina Salsa.\n\nData:\nHorário:\nNúmero de pessoas:",
+  ),
+  eventContact: whatsappLink(
+    "Olá! Gostaria de conversar sobre um evento no Divina Salsa. Posso enviar a data, o horário e a estimativa de convidados?",
+  ),
   instagram: "https://www.instagram.com/divinasalsa/",
   maps:
     "https://www.google.com/maps/search/?api=1&query=-27.6226382%2C-48.6779509",
