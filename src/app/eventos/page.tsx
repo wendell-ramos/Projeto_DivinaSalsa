@@ -17,7 +17,7 @@ export const metadata: Metadata = createPageMetadata({
 
 const photos = [
   { image: "eventos-celebracao", alt: "Mesa decorada com bolo, doces, flores e balões para uma celebração no restaurante", position: "center 72%" },
-  { image: "eventos-mesa", alt: "Convidados reunidos em torno de uma mesa de buffet decorada com flores", position: "center 52%" },
+  { image: "eventos-buffet-sem-rostos", alt: "Buffet do evento com pratos variados e arranjo de flores", position: "center" },
   { image: "galeria-eventos-032", alt: "Mesa com taças e toalha clara preparada para um encontro no Divina Salsa", position: "center 72%" },
 ];
 
